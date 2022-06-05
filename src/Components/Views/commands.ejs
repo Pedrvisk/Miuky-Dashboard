@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="<%= t('locale') %>">
+
+<head>
+  <%- include('../Partials/head') %>
+</head>
+
+<body style="background: #23272A;">
+  <%- include('../Partials/loading') %>
+  <header>
+    <%- include('../Partials/header') %>
+  </header>
+  <!-- _____________________________________________________________________________________________________ -->
+  <main class="d-flex justify-content-center align-items-start p-lg-5 p-2">
+    <div>
+      <% for (let category in commands) { %>
+      <div class="container-fluid my-5">
+        <h3 class="miuky-color">
+          <strong>
+            <%= t('commands.categories.' + category) %> - <%= commands[category].size %>
+          </strong>
+        </h3>
+        <% for (let command of commands[category].commands) { %>
+        <button type="button" class="miuky-button command-button" data-mdb-toggle="modal" data-mdb-target="#modal-<%= command.name %>">
+          <%= command.name.toUpperCase() %><i class="fas fa-caret-down ms-1"></i>
+        </button>
+
+        <div class="modal fade miuky-color miuky-shadow" id="modal-<%= command.name %>" tabindex="-1" role="dialog" aria-labelledby="#modal-<%= command.name %>" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="background:#2C2F33;">
+              <div class="modal-header p-2" style="border: none;">
+                <h5 class="modal-title ms-2" style="background: #23272A; border-radius: 10px; padding: 5px 14px;">
+                  <%= command.name.toUpperCase() %>
+                </h5>
+                <button type="button" class="miuky-color me-2" data-mdb-dismiss="modal" style="background: transparent; border: none;">
+                  <i class="far fa-window-close fa-lg"></i>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p class="desc-box text-center"><%= command.description %></p>
+                <p><%= t('commands.cooldown') %> <span class="desc-box"><%= command.cooldown %> <%= t('commands.seconds') %></span></p>
+                <% if (command.channelPermissions) { %>
+                <p>
+                  <%= t('commands.channelPermissions') %>
+                  <% command.channelPermissions.map((perm) => { %>
+                  <span class="desc-box"><%= perm %></span>
+                  <% }) %>
+                </p>
+                <% } %>
+                <% if (command.memberPermissions) { %>
+                <p>
+                  <%= t('commands.memberPermissions') %>
+                  <% command.memberPermissions.map((perm) => { %>
+                  <span class="desc-box"><%= perm %></span>
+                  <% }) %>
+                </p>
+                <% } %>
+                <% if (command.options) { %>
+                <%= t('commands.options') %>
+                <br>
+                <div>
+                  <% command.options.map((cmd)=> { %>
+                  <div class="my-2" style="background: #23272A; border-radius: 5px; padding: 7px 14px;">
+                    <code>
+                      <span style="color: aliceblue;"><%= t('commands.name') %></span> <%= cmd.name %>
+                      <br>
+                      <span style="color: aliceblue;"><%= t('commands.type') %></span> <%= cmd.type %>
+                      <br>
+                      <span style="color: aliceblue;"><%= t('commands.description') %></span> <%= cmd.description %>
+                      <br>
+                      <span style="color: aliceblue;"><%= t('commands.required') %></span> <%= cmd.required ? t('commands.true') : t('commands.false') %>
+                    </code>
+                  </div>
+                  <% }).join(' ') %>
+                </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% } %>
+      </div>
+      <% } %>
+    </div>
+  </main>
+  <!-- _____________________________________________________________________________________________________ -->
+  <footer>
+    <%- include('../Partials/footer') %>
+  </footer>
+  <%- include('../Partials/cookie') %>
+</body>
+
+<style>
+  .command-button {
+    margin: 0.1em;
+    letter-spacing: 1px;
+  }
+
+  .desc-box {
+    border-radius: 5px;
+    background: #23272A;
+    padding: 6px 12px;
+  }
+</style>
+
+</html>

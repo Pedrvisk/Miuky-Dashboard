@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="<%= t('locale') %>">
+
+<head>
+  <%- include('../Partials/head') %>
+</head>
+
+<body style="background: #23272A;">
+  <%- include('../Partials/loading') %>
+  <header>
+    <%- include('../Partials/header') %>
+  </header>
+  <!-- _____________________________________________________________________________________________________ -->
+  <main id="status" class="container-fluid p-lg-5 p-3">
+    <div class="container-box rounded p-3 d-flex justify-content-evenly align-items-center text-center miuky-color" style="background: #2C2F33;">
+      <h6 class="m-0">
+        <strong>
+          Clusters <%= stats.totalClusters %>
+        </strong>
+      </h6>
+      <h6 class="m-0">
+        <strong>
+          Shards <%= stats.totalShards %>
+        </strong>
+      </h6>
+      <h6 class="m-0">
+        <strong>
+          <%= t('status.guilds') %> <%= stats.totalGuilds %>
+        </strong>
+      </h6>
+    </div>
+    <% for (let cluster of stats.clusters) { %>
+    <div class="container-box rounded px-md-4 p-3" style="background: #2C2F33;">
+      <h3 class="miuky-color">
+        <strong>
+          Cluster <%= cluster.id + 1 %>
+        </strong>
+      </h3>
+      <% for (let shard of cluster.shards) { %>
+      <button type="button" class="btn miuky-button" data-mdb-toggle="tooltip" data-mdb-html="true" title="
+        <div class='p-0'>
+            <h5 class='text-light rounded mb-1 text-center'>
+                SHARD <%= shard.id + 1 %>
+            </h5>                               
+            <hr class='rounded-pill m-0 bg-dark'>
+            <p class='text-start p-2 text-light bg-dark rounded'>
+                Status: <span class='text-info'><%= t('status.mode')[shard.status] %></span>
+                <br>
+                API: <span class='text-info'><%= shard.ping %> ms</span>
+                <br>
+                <%= t('status.guilds') %>: <span class='text-info'><%= shard.guildcount %></span>
+                </p>
+        </div>
+        ">
+        Shard <%= shard.id + 1 %>
+      </button>
+      <% } %>
+    </div>
+    <% } %>
+  </main>
+  <!-- _____________________________________________________________________________________________________ -->
+  <footer>
+    <%- include('../Partials/footer') %>
+  </footer>
+  <%- include('../Partials/cookie') %>
+</body>
+
+<style>
+  #status .container-box {
+    margin: 10px 0;
+  }
+</style>
+
+</html>

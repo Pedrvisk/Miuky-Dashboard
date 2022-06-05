@@ -1,0 +1,30 @@
+{
+  "name": "newv2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Dashboard.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Pedrovisk#0001",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express-mw-lang": "^2.0.2",
+    "express-session": "^1.17.3",
+    "greenlock-express": "^4.0.3",
+    "helmet": "^5.0.2",
+    "i18n": "^0.14.2",
+    "moment": "^2.29.3",
+    "mongoose": "^6.3.3",
+    "net-ipc": "^2.0.1",
+    "passport": "^0.5.2",
+    "passport-discord": "^0.1.4",
+    "passport-oauth2-refresh": "^2.1.0"
+  }
+}

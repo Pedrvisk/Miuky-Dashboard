@@ -1,0 +1,245 @@
+{
+	"locale": "pt-BR",
+	"title": "Miuky",
+	"noscript": "Ative o JavaScript",
+	"new": "Novo",
+	"head": {
+		"title": "Miuky",
+		"description": "Um bot de Discord, multi-linguagem com múltiplos comandos, configuração simples com um painel de controle pelo website.",
+		"image": "",
+		"pages": {
+			"home": "Início",
+			"commands": "Comandos",
+			"privacy": "Privacidade & Termos",
+			"status": "Status",
+			"error": "Erro",
+			"dashboard/guilds": "Servidores",
+			"dashboard/guild": "head.pages.dashboard/guild",
+			"dashboard/welcome": "head.pages.dashboard/welcome"
+		}
+	},
+	"route": {
+		"home": "/pt-BR",
+		"commands": "/pt-BR/commands",
+		"privacy": "/pt-BR/privacy-terms",
+		"status": "/pt-BR/status",
+		"servers": "/pt-BR/guilds",
+		"invite": "/pt-BR/invite",
+		"support": "/pt-BR/support",
+		"discord": {
+			"login": "/pt-BR/discord/login",
+			"logout": "/pt-BR/discord/logout"
+		}
+	},
+	"cookie": {
+		"content": "Este site usa cookies para garantir que você tenha a melhor experiência em nosso site.",
+		"link": "Saber mais"
+	},
+	"header": {
+		"navbar": {
+			"home": "Início",
+			"commands": "Comandos",
+			"privacy": "Privacidade & Termos",
+			"login": "Entrar",
+			"user": {
+				"title": "Painel de Controle",
+				"servers": "Servidores",
+				"logout": "Sair"
+			}
+		},
+		"dropdown": {
+			"language": {
+				"title": "Idioma",
+				"name": "Português - Brasil",
+				"icon": "/img/locales/pt-BR.png"
+			}
+		}
+	},
+	"footer": {
+		"copyright": "Copyright © 2022 Pedrovisk — Todos os direitos reservados"
+	},
+	"home": {
+		"header": {
+			"invite": "Me Adicione",
+			"dashboard": "Painel de Controle",
+			"utils": "Utilização",
+			"mods": "Moderação",
+			"fun": "Entretenimento",
+			"multi": "Multifuncional",
+			"multilanguage": "Atualmente disponível em dois idiomas!",
+			"server": "Precisa de ajuda? junte-se ao meu servidor "
+		},
+		"main": {
+			"welcome": {
+				"widget": {
+					"hello": "Olá",
+					"content": [
+						"bem-vindo à",
+						"Projeto Miuky",
+						", leia as regras e obedeça-as, agora temos",
+						"208",
+						"membros!"
+					]
+				},
+				"title": "Comece a dar as boas-vindas aos novos membros!",
+				"content": "Tire partido da mensagem de boas-vindas para informar os recém-chegados sobre as regras do seu servidor, tópicos ou eventos em curso. Pode personalizar a sua mensagem, imagem, e mais, ou mantê-la simples."
+			},
+			"dashboard": {
+				"widget": {
+					"title": "Painel de Controle",
+					"content": "Selecione um para configurar",
+					"button": "Vamos lá!"
+				},
+				"title": "Personalize e configure facilmente o seu servidor!",
+				"content": "Com uma interface simples e intuitiva para uma melhor experiência do usuário para personalizar e configurar o seu servidor. Com várias opções, tais como mudança de idioma, funções automatizadas, sistema de boas-vindas, entre outras!"
+			}
+		},
+		"footer": {
+			"title": "Personalize, entretenha e proteja o seu servidor de Discord gratuitamente!",
+			"invite": "Adicionar ao Discord"
+		}
+	},
+	"error": {
+		"button": "Voltar",
+		"message": {
+			"oauth": "Oops, houve um problema ao conectar-se ao Discord.",
+			"invite": "Oops, ocorreu um problema ao tentar convidar o bot para este servidor.",
+			"notFound": "Oops, parece não conseguimos encontrar a página que procura.",
+			"badGateway": "Oops, ocorreu algum erro no servidor a fim de obter uma resposta necessária para tratar o pedido."
+		}
+	},
+	"commands": {
+		"categories": {
+			"utils": "Utilidades",
+			"fun": "Entretenimento"
+		},
+		"cooldown": "Tempo de espera",
+		"seconds": "segundos",
+		"channelPermissions": "Permissões do canal",
+		"memberPermissions": "Permissões de membro",
+		"name": "Nome:",
+		"type": "Tipo:",
+		"required": "Requerido:",
+		"true": "Sim",
+		"false": "Não",
+		"options": "Opções",
+		"description": "Descrição:"
+	},
+	"privacy": {
+		"politic": {
+			"title": "Política de Privacidade",
+			"alert": "A fim de disponibilizar os nossos serviços, precisamos de recolher alguns dados dos nossos usuários. Não recolhemos dados que não sejam necessários para o funcionamento de nossos serviços. Note que este documento pode mudar a qualquer momento, pelo que o encorajamos a verificar este documento sempre que utilizar os nossos serviços para compreender como tratamos teus dados.",
+			"time": "17/05/2022, às 23:15",
+			"features": [
+				{
+					"name": "Dados que Recolhemos",
+					"description": "Armazenamos apenas o seu Discord Id, que é informação pública a que todos têm acesso. Estes são os únicos dados de utilizador que recolhemos e armazenamos a fim de identificar e classificar a informação da base de dados relativa a cada perfil."
+				},
+				{
+					"name": "Proteção de Dados",
+					"description": "Todos os dados são acessíveis por e só nossa equipe. Nós garantimos que nenhum dado será distribuído, vendido ou doado a terceiros. Nós também garantimos que os dados são armazenados em segurança numa base de dados robusta em questões de segurança."
+				},
+				{
+					"name": "Serviços de Terceiros",
+					"description": "Nossa aplicação que corre dentro do Discord, segue as regras e regulamentos aí existentes, tal como os seus usuários deveriam."
+				},
+				{
+					"name": "Exclusão de Dados",
+					"description": "O usuário pode ter os seus dados apagados de em qualquer momento enviando um e-mail para service.miuky@gmail.com."
+				}
+			],
+			"links": [
+				{
+					"title": "Servidor de Suporte",
+					"url": "/pt-BR/support",
+					"emoji": "fas fa-headset"
+				}
+			]
+		},
+		"term": {
+			"title": "Termos de Serviço",
+			"alert": "Ao utilizar quaisquer de nossos serviços, deve estar ciente do que pode e não pode fazer. Ao utilizá-lo, temos em conta que LERÁ e CONCORDARÁ com todos estes termos.",
+			"time": "17/05/2022, às 23:30",
+			"features": [
+				{
+					"name": "Abuso de Bugs",
+					"description": "Ao descobrir um bug, e em vez de o denunciar, abusa dele e até o partilha, corre-se o risco de perder o acesso a todos os nossos serviços e funcionalidades."
+				},
+				{
+					"name": "Diretrizes Comunitárias",
+					"description": "Como nossa aplicação é dependente do Discord, o usuário deve, além de seguir as seguintes regras, seguir também as diretrizes desta. Veja as diretrizes do Discord no link."
+				}
+			],
+			"items": [
+				"Não utilize o conteúdo NSFW nos comandos da aplicação. Não queremos qualquer tipo de ligação a este tipo de conteúdo.",
+				"Não toleramos qualquer tipo de atitude racista, homofóbica, xenófoba, preconceituosa, entre outras, com qualquer pessoa. A nossa missão é trazer diversas funcionalidades aos servidores, se o seu servidor promove ou tem ligações a atitudes que denigrem a imagem de alguém, então não queremos ligações consigo.",
+				"É proibida a tentativa de contornar as restrições impostas por nossa equipe, tais como algo que ultrapasse um tempo de recarga, ou a utilização de outras contas para melhorar uma conta principal."
+			],
+			"links": [
+				{
+					"title": "Diretrizes do Discord",
+					"url": "https://discord.com/guidelines",
+					"emoji": "fab fa-discord"
+				}
+			]
+		}
+	},
+	"status": {
+		"guilds": "Servidores",
+		"uptime": "Iniciado há",
+		"mode": [
+			"Pronto",
+			"Conectando",
+			"Reconectando",
+			"Ocioso",
+			"Por pouco",
+			"Desconectado",
+			"Esperando por servidores",
+			"Identificando",
+			"Resumindo"
+		]
+	},
+	"sidenav": {
+		"dashboard": "Painel de Controle",
+		"sections": {
+			"gerenciamento": [
+				{
+					"title": "Boas-vindas",
+					"emoji": "fas fa-comment-alt",
+					"href": "/welcome"
+				},
+				{
+					"title": "Linguagem",
+					"emoji": "fas fa-globe",
+					"href": "/language"
+				}
+			]
+		}
+	},
+	"guilds": {
+		"select": "Selecione um servidor",
+		"owner": "Dono",
+		"admin": "Administrador",
+		"setup": "Configurar",
+		"dashboard": {
+			"title": "Olá",
+			"content": "O que é que vamos configurar hoje?",
+			"sections": {
+				"Gerenciamento": [
+					{
+						"title": "Boas-vindas",
+						"content": "Tire partido da mensagem de boas-vindas para informar os recém-chegados.",
+						"emoji": "/img/svg/welcome.svg",
+						"href": "/welcome"
+					},
+					{
+						"title": "Linguagem",
+						"content": "Altere a língua dos comandos no seu servidor.",
+						"emoji": "/img/svg/language.svg",
+						"href": "/language"
+					}
+				]
+			}
+		}
+	}
+}

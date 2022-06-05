@@ -1,0 +1,18 @@
+<div id="consent-popup" class="hidden none fixed-bottom text-wrap miuky-color miuky-shadow p-3 d-block d-md-flex align-items-center justify-content-center text-center" style="background: rgba(0, 0, 0, 0.9); transition: all 1s ease;">
+    <div class="fw-normal">
+        <%= t('cookie.content') %> <a class="text-decoration" href="<%= t('route.privacy') %>"><%= t('cookie.link') %></a>
+    </div>
+    <button id="consent-okay" type="button" class="vw-100 ms-md-3 mt-2 mt-md-0 px-3 py-1 miuky-button ripple" style="max-width: 10rem;">
+        OKAY
+    </button>
+</div>
+
+<style>
+    #consent-popup.hidden {
+        opacity: 0;
+    }
+
+    #consent-popup.none {
+        display: none !important;
+    }
+</style>

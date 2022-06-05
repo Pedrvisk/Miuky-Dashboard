@@ -1,0 +1,19 @@
+<div id="save-popup" class="hidden none fixed-bottom text-wrap miuky-color miuky-shadow p-3 d-block d-md-flex align-items-center justify-content-center text-center" style="background: rgba(0, 0, 0, 0.9); transition: all 1s ease;">
+    <div class="fw-normal me-3">
+        Mudanças detectadas! Por favor, salve ou cancele.
+    </div>
+    <form id="formSave" action="<%= t('route.servers') %>/<%= guild.id %>/<%= postUrl %>" method="POST">
+        <input type="reset" id="resetForm" value="Cancelar" class="btn btn-danger" />
+        <input type="button" id="saveForm" value="Salvar" class="btn btn-primary ms-1" />
+    </form>
+</div>
+
+<style>
+    #save-popup.hidden {
+        opacity: 0;
+    }
+
+    #save-popup.none {
+        display: none !important;
+    }
+</style>

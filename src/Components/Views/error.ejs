@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="<%= t('locale') %>">
+
+<head>
+  <%- include('../Partials/head') %>
+</head>
+
+<body style="background: #23272A;">
+  <%- include('../Partials/loading') %>
+  <header>
+    <%- include('../Partials/header') %>
+  </header>
+  <!-- _____________________________________________________________________________________________________ -->
+  <main id="error" class="container-fluid d-flex align-items-center text-md-center text-start miuky-color p-md-5 p-3">
+    <div class="container-fluid p-3">
+      <!-- _____________________________________________________________________________________________________ -->
+      <div class="container-box">
+        <h1 class="miuky-text-shadow" style="color: red; font-size: 120px;">
+          <strong>
+            <%= statusCode %>
+          </strong>
+        </h1>
+        <p style="font-size: 30px;">
+          <%= message %>
+        </p>
+      </div>
+      <div>
+        <button id="buttonBack" class="btn miuky-button">
+          <%= t('error.button') %>
+        </button>
+      </div>
+      <!-- _____________________________________________________________________________________________________ -->
+    </div>
+  </main>
+  <!-- _____________________________________________________________________________________________________ -->
+  <footer>
+    <%- include('../Partials/footer') %>
+  </footer>
+</body>
+
+<style>
+  /* Mobile */
+  @media only screen and (max-width: 768px) {
+
+    #error p {
+      font-size: 23px !important;
+    }
+
+    #error .miuky-button {
+      font-size: 20px;
+    }
+  }
+</style>
+
+</html>

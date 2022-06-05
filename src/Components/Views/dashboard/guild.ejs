@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="<%= t('locale') %>">
+
+<head>
+  <%- include('../../Partials/head') %>
+</head>
+
+<body style="background: #23272A;">
+  <%- include('../../Partials/loading') %>
+  <header>
+    <%- include('../../Partials/header') %>
+  </header>
+  <!-- _____________________________________________________________________________________________________ -->
+  <main class="container-fluid p-md-5 p-4 miuky-color">
+    <div class="text-center">
+      <h3>
+        <strong>
+          <%= t('guilds.dashboard.title') %>
+          <%= user.username %>!
+        </strong>
+      </h3>
+      <p class="fw-normal">
+        <%= t('guilds.dashboard.content') %>
+      </p>
+    </div>
+    <% for (let mainsection in t('guilds.dashboard.sections')) { %>
+    <div class="container-box">
+      <button class="text-white-50 d-flex align-items-center justify-content-between w-100 border-0 bg-transparent" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-<%= mainsection %>-main" aria-expanded="true" aria-controls="collapse-<%= mainsection %>-main">
+        <span class="h5 m-0">
+          <%= mainsection %>
+        </span>
+        <i class="fas fa-angle-up fa-lg"></i>
+      </button>
+
+      <div id="collapse-<%= mainsection %>-main" class="collapse show mt-4" style="border-top: 1px solid rgb(35, 39, 42);">
+        <div class="row mt-2 mt-lg-4">
+          <% for (let maintabs of t('guilds.dashboard.sections')[mainsection]) { %>
+          <div class="col-lg-3 p-lg-4 p-3 py-4 mt-3 mt-lg-0 row-item mx-0 mx-lg-2 position-relative">
+            <div class="text-end">
+              <img src="<%= maintabs.emoji %>" width="70" height="70">
+            </div>
+            <div>
+              <h5>
+                <strong>
+                  <%= maintabs.title %>
+                </strong>
+              </h5>
+              <p class="text-wrap fw-normal w-100" style="color: rgba(240, 248, 255, 0.7);">
+                <%= maintabs.content %>
+              </p>
+            </div>
+            <a href="<%= t('route.servers') %>/<%= guild.id %><%= maintabs.href %>" class="stretched-link"></a>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </main>
+  <!-- _____________________________________________________________________________________________________ -->
+  <footer>
+    <%- include('../../Partials/footer') %>
+  </footer>
+  <%- include('../../Partials/sidenav') %>
+  <%- include('../../Partials/cookie') %>
+</body>
+
+<style>
+  .row-item {
+    border-radius: 5px;
+    color: aliceblue;
+    height: 240px;
+    background: #3e4347fb;
+    transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+  }
+
+  .row-item:hover {
+    background: rgba(240, 248, 255, 0.15);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  }
+
+  .container-box {
+    background: #2C2F33;
+    padding: 30px;
+    margin: 20px 0;
+    color: aliceblue;
+    border-radius: 5px;
+  }
+
+  .container-box .fas {
+    transition: .3s transform ease-in-out;
+    -o-transition: .3s transform ease-in-out;
+    -moz-transition: .3s transform ease-in-out;
+    -webkit-transition: .3s transform ease-in-out;
+  }
+
+  .container-box .collapsed .fas {
+    transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+</style>
+
+</html>

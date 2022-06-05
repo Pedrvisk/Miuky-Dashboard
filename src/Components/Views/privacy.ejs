@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="<%= t('locale') %>">
+
+<head>
+  <%- include('../Partials/head') %>
+</head>
+
+<body style="background: #23272A;">
+  <%- include('../Partials/loading') %>
+  <header>
+    <%- include('../Partials/header') %>
+  </header>
+  <!-- _____________________________________________________________________________________________________ -->
+  <main class="container-fluid mb-2 p-3 px-lg-5" id="privacy">
+    <div class="miuky-color mb-5">
+      <h3 class="text-center" style="color: cyan;">
+        <strong><%= t('privacy.politic.title') %></strong>
+      </h3>
+      <p class="text-center rounded p-2 position-relative my-4" style="border: 1px solid #FFA900; background: #2C2F33; color: #FFA900; overflow-wrap: anywhere; font-style: oblique;">
+        <span class="position-absolute top-0 start-50 start-md-0 translate-middle badge rounded bg-warning p-1 text-dark">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+        <%= t('privacy.politic.alert') %>
+      </p>
+      <div class="discord-message">
+        <div class="discord-author-avatar">
+          <img src="/img/miuky.png" alt="Miuky" />
+        </div>
+        <div class="discord-message-content">
+          <div>
+            <span class="discord-author-info">
+              <span class="discord-author-username" style="color: cyan;">Miuky</span>
+              <span class="badge bg-primary p-1" style="font-size: 0.7em;"><i class="fas fa-check me-1"></i>BOT</span>
+              <span class="discord-message-timestamp"><%= t('privacy.politic.time') %></span>
+            </span>
+          </div>
+          <div class="discord-message-content">
+            <% let features = t('privacy.politic.features');
+                            features.forEach((f) => { %>
+            <h5 class="text-info">
+              <strong>
+                <%= f.name %>
+              </strong>
+            </h5>
+            <p class="rounded p-2 fw-normal" style="background: #2C2F33; color: rgba(240, 248, 255, 0.650);">
+              &nbsp;<%= f.description %>
+            </p>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-3">
+        <% for (let link of t('privacy.politic.links')) { %>
+        <a href="<%= link.url %>" class="miuky-button"><i class="<%= link.emoji %> me-1"></i><%= link.title %></a>
+        <% } %>
+      </div>
+    </div>
+    <hr class="rounded-pill" style="background: #2C2F33; border: 3px solid #2C2F33; opacity: 100%;">
+    <div class="miuky-color">
+      <h3 class="text-center" style="color: cyan;">
+        <strong><%= t('privacy.term.title') %></strong>
+      </h3>
+      <p class="text-center rounded p-2 position-relative my-4" style="border: 1px solid #FFA900; background: #2C2F33; color: #FFA900; overflow-wrap: anywhere; font-style: oblique;">
+        <span class="position-absolute top-0 start-50 start-md-0 translate-middle badge rounded bg-warning p-1 text-dark">
+          <i class="fas fa-exclamation-triangle"></i>
+        </span>
+        <%= t('privacy.term.alert') %>
+      </p>
+      <div class="discord-message">
+        <div class="discord-author-avatar">
+          <img src="/img/miuky.png" alt="Miuky" />
+        </div>
+        <div class="discord-message-content">
+          <div>
+            <span class="discord-author-info">
+              <span class="discord-author-username" style="color: cyan;">Miuky</span>
+              <span class="badge bg-primary p-1" style="font-size: 0.7em;"><i class="fas fa-check me-1"></i>BOT</span>
+              <span class="discord-message-timestamp"><%= t('privacy.term.time') %></span>
+            </span>
+          </div>
+          <div class="discord-message-content">
+            <% let tfeatures = t('privacy.term.features');
+            tfeatures.forEach((f) => { %>
+            <h5 class="text-info">
+              <strong>
+                <%= f.name %>
+              </strong>
+            </h5>
+            <p class="rounded p-2 fw-normal" style="background: #2C2F33; color: rgba(240, 248, 255, 0.650);">
+              &nbsp;<%= f.description %>
+            </p>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <div class="list-group">
+        <% for (let litem of t('privacy.term.items')) { %>
+        <label class="list-group-item" style="background: #2C2F33; color: aliceblue !important;">
+          <input class="form-check-input me-1" type="checkbox" checked disabled />
+          <%= litem %>
+        </label>
+        <% } %>
+      </div>
+      <div class="text-center mt-3">
+        <% for (let link of t('privacy.term.links')) { %>
+        <a href="<%= link.url %>" class="miuky-button"><i class="<%= link.emoji %> me-1"></i><%= link.title %></a>
+        <% } %>
+      </div>
+    </div>
+  </main>
+  <!-- _____________________________________________________________________________________________________ -->
+  <footer>
+    <%- include('../Partials/footer') %>
+  </footer>
+  <%- include('../Partials/cookie') %>
+</body>
+
+</html>

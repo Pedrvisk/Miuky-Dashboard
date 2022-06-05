@@ -1,0 +1,243 @@
+{
+	"locale": "en",
+	"title": "Miuky",
+	"noscript": "Enable JavaScript",
+	"new": "New",
+	"head": {
+		"title": "Miuky",
+		"description": "A Discord bot, multi-language with multiple commands, simple configuration with a website control panel.",
+		"image": "",
+		"pages": {
+			"home": "Home",
+			"commands": "Commands",
+			"privacy": "Privacy & Terms",
+			"status": "Status",
+			"error": "Error",
+			"dashboard/guilds": "Guilds"
+		}
+	},
+	"route": {
+		"home": "/",
+		"commands": "/commands",
+		"privacy": "/privacy-terms",
+		"status": "/status",
+		"servers": "/guilds",
+		"invite": "/invite",
+		"support": "/support",
+		"discord": {
+			"login": "/discord/login",
+			"logout": "/discord/logout"
+		}
+	},
+	"cookie": {
+		"content": "This website uses cookies to ensure you get the best experience on our website.",
+		"link": "Learn more"
+	},
+	"header": {
+		"navbar": {
+			"home": "Home",
+			"commands": "Commands",
+			"privacy": "Privacy & Terms",
+			"login": "Login",
+			"user": {
+				"title": "Dashboard",
+				"servers": "Guilds",
+				"logout": "Logout"
+			}
+		},
+		"dropdown": {
+			"language": {
+				"title": "Language",
+				"name": "English - International",
+				"icon": "/img/locales/en.png"
+			}
+		}
+	},
+	"footer": {
+		"copyright": "Copyright © 2022 Pedrovisk - All rights reserved"
+	},
+	"home": {
+		"header": {
+			"invite": "Invite Me",
+			"dashboard": "Dashboard",
+			"utils": "Utilization",
+			"mods": "Moderation",
+			"fun": "Entertainment",
+			"multi": "Multifunctional",
+			"multilanguage": "Currently available in two languages!",
+			"server": "Need help? join in my server "
+		},
+		"main": {
+			"welcome": {
+				"widget": {
+					"hello": "Hello",
+					"content": [
+						"welcome to",
+						"Project Miuky",
+						", read the rules and obey them, we now have",
+						"208",
+						"members!"
+					]
+				},
+				"title": "Start welcoming new members!",
+				"content": "Take advantage of the welcome message to inform newcomers about your server rules, topics or ongoing events. You can customize your message, image, and more, or keep it simple."
+			},
+			"dashboard": {
+				"widget": {
+					"title": "Dashboard",
+					"content": "Select one to configure",
+					"button": "Let's go!"
+				},
+				"title": "Easily customize and configure your guild!",
+				"content": "With a simple and intuitive interface for a better user experience to customize and configure your guild. With many options such as language change, automated functions, welcome system, and more!"
+			}
+		},
+		"footer": {
+			"title": "Customize, entertain and secure your Discord server for free!",
+			"invite": "Add to Discord"
+		}
+	},
+	"error": {
+		"button": "Back",
+		"message": {
+			"oauth": "Oops, there was a problem trying to connect to Discord.",
+			"invite": "Oops, a problem occurred while trying to invite the bot to this guild.",
+			"notFound": "Oops, we can't seem to find the page you are looking for.",
+			"badGateway": "Oops, some error occurred on the server in order to get a response needed to handle the request."
+		}
+	},
+	"commands": {
+		"categories": {
+			"utils": "Utilities",
+			"fun": "Entertainment"
+		},
+		"cooldown": "Cooldown",
+		"seconds": "seconds",
+		"channelPermissions": "Channel permissions",
+		"memberPermissions": "Member permissions",
+		"name": "Name:",
+		"type": "Type:",
+		"required": "Required:",
+		"true": "True",
+		"false": "False",
+		"options": "Options",
+		"description": "Description:"
+	},
+	"privacy": {
+		"politic": {
+			"title": "Privacy Policy",
+			"alert": "In order to make our services available, we need to collect some data from our users. We do not collect data that is not necessary for the operation of our services. Please note that this document may change at any time, so we encourage you to check this document whenever you use our services to understand how we treat your data..",
+			"time": "05/17/2022, at 23:15 PM",
+			"features": [
+				{
+					"name": "Data We Collect",
+					"description": "We only store your Discord Id, which is public information that everyone has access to. This is the only user data we collect and store in order to identify and classify the database information pertaining to each profile."
+				},
+				{
+					"name": "Data Protection",
+					"description": "All data is accessible by and only our staff. We guarantee that no data will be distributed, sold or donated to third parties. We also guarantee that data is stored securely in a database that is robust in security matters."
+				},
+				{
+					"name": "Third-Party Services",
+					"description": "Our application that runs inside Discord, follows the rules and regulations there, just as its users should."
+				},
+				{
+					"name": "Data Exclusion",
+					"description": " The user can have his data deleted at any time by sending an e-mail to service.miuky@gmail.com."
+				}
+			],
+			"links": [
+				{
+					"title": "Support Server",
+					"url": "/support",
+					"emoji": "fas fa-headset"
+				}
+			]
+		},
+		"term": {
+			"title": "Terms of Service",
+			"alert": "When using any of our services, you should be aware of what you can and cannot do. By using it, we take into account that you will READ and AGREE with all these terms.",
+			"time": "05/17/2022, at 23:30 PM",
+			"features": [
+				{
+					"name": "Bugs abuse",
+					"description": "By discovering a bug, and instead of reporting it, abusing it and even sharing it, you risk losing access to all our services and features."
+				},
+				{
+					"name": "Community Guidelines",
+					"description": "As our application is dependent on Discord, you must not only follow the following rules, but also follow the Discord guidelines. See the Discord guidelines at the link."
+				}
+			],
+			"items": [
+				"Do not use NSFW content in the application commands. We do not want any links to this type of content.",
+				"We do not tolerate any kind of racist, homophobic, xenophobic, prejudiced attitude, among others, with any person. Our mission is to bring various features to the servers, if your server promotes or has links to attitudes that denigrate the image of someone, then we do not want links with you.",
+				" Attempting to circumvent restrictions imposed by our staff, such as anything that exceeds a recharge time, or using other accounts to upgrade a primary account, is prohibited."
+			],
+			"links": [
+				{
+					"title": "Discord Guidelines",
+					"url": "https://discord.com/guidelines",
+					"emoji": "fab fa-discord"
+				}
+			]
+		}
+	},
+	"status": {
+		"guilds": "Guilds",
+		"uptime": "Uptime",
+		"mode": [
+			"Ready",
+			"Connecting",
+			"Reconnecting",
+			"Idle",
+			"Nearly",
+			"Disconnected",
+			"Waiting for Guilds",
+			"identifying",
+			"Resuming"
+		]
+	},
+	"sidenav": {
+		"dashboard": "Dashboard",
+		"sections": {
+			"management": [
+				{
+					"title": "Welcome",
+					"emoji": "fas fa-comment-alt",
+					"href": "/welcome"
+				},
+				{
+					"title": "Language",
+					"emoji": "fas fa-globe",
+					"href": "/language"
+				}
+			]
+		}
+	},
+	"guilds": {
+		"select": "Select a guild",
+		"owner": "Owner",
+		"admin": "Administrator",
+		"setup": "Setup",
+		"dashboard": {
+			"title": "Hello",
+			"content": "What are we going to configure today?",
+			"sections": {
+				"Management": [
+					{
+						"title": "Welcome",
+						"content": "Take advantage of the welcome message to inform newcomers.",
+						"emoji": "/img/svg/welcome.svg",
+						"href": "/welcome"
+					},
+					{
+						"title": "Language",
+						"content": "Change the language of the commands on your server.",
+						"emoji": "/img/svg/language.svg",
+						"href": "/language"
+					}
+				]
+			}
+		}
+	}
+}

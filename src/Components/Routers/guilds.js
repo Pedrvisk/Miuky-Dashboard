@@ -34,12 +34,9 @@ module.exports = (express, app, router, axios) => {
             data: { guildId: req.data.id }
         }).catch(() => { return null });
 
-        req.data.channels = channels ? channels : req.data.channels;
-        return app.template('dashboard/welcome', { guild: req.data, pageTitle: req.data.name, postUrl: 'welcome' })(req, res);
-    });
+        const database = await app.database.guild.findById(req.data.id);
 
-    router.route('/guilds/:guildId/welcome').post(app.checkAuth, app.checkGuild, async (req, res, next) => {
-        console.log(req.body);
-        return res.redirect(req.lang.routeTo(`/guilds/${req.params.guildId}/welcome`));
+        req.data.channels = channels ? channels : req.data.channels;
+        return app.template('dashboard/welcome', { guild: req.data, database, pageTitle: req.data.name, postUrl: 'welcome' })(req, res);
     });
 }

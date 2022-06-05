@@ -28,8 +28,7 @@ $(document).ready(() => {
         } else {
             $('.miuky-select .miuky-input-error').css({ 'display': 'none' });
         }
-
-        if (!$('.miuky-textarea').val().length) {
+        if (!$('.miuky-textarea').val().trim().replace(/(?:\r\n|\r|\n)/g, '').length) {
             return $('.miuky-areatext .miuky-input-error').css({ 'display': 'block' });
         } else {
             $('.miuky-areatext .miuky-input-error').css({ 'display': 'none' });
@@ -41,9 +40,9 @@ $(document).ready(() => {
     $('#resetForm').click(function () {
         $('#formSave')[0].reset();
         $('#placeholder').text($('#placeholder').data('titleselect'));
-        $('#MessageTextareaCounter').text(`${$('.miuky-textarea').val().length} / ${$('.miuky-textarea').attr('maxlength')}`);
+        $('#MessageTextareaCounter').text(`${$('.miuky-textarea').val().trim().replace(/(?:\r\n|\r|\n)/g, '').length} / ${$('.miuky-textarea').attr('maxlength')}`);
         $('.miuky-input-error').css({ 'display': 'none' });
-        
+
         setTimeout(() => {
             $('#save-popup').addClass('hidden');
             setTimeout(() => $('#save-popup').addClass('none'), 800);

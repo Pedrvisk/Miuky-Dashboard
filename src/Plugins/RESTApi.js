@@ -1,15 +1,13 @@
 const { resolve } = require('path');
 
 // Plugin: RESTApi
-module.exports = async (express, app, router, axios) => {
-    const cors = require('cors');
-    app.use(cors({ credentials: true }));
+module.exports = async (express, app, router, axios, cache) => {
 
     // RESTApi: Routers
     const { readdirSync } = require('fs');
     const routes = readdirSync(resolve('src/Resources/ServerAPI')).filter((file) => file.endsWith('.js')).map((file) => file.split('.')[0]);;
     for (const route of routes)
-        require(resolve(`src/Resources/ServerAPI/${route}`))(express, app, router, axios);
+        require(resolve(`src/Resources/ServerAPI/${route}`))(express, app, router, axios, cache);
 
     // RESTApi: Net-ipc Server
     const { Client } = require('net-ipc');
@@ -17,6 +15,8 @@ module.exports = async (express, app, router, axios) => {
         host: '150.230.94.154',
         port: 3000,
         tls: true,
+        reconnect: true,
+        retries: Infinity,
         options: {
             pskCallback: () => {
                 return {
@@ -29,7 +29,8 @@ module.exports = async (express, app, router, axios) => {
         }
     });
 
-    app.client.connect().catch(console.error);
+    // RESTApi: Net-ipc Server Connect
+    app.client.connect().catch(() => { });
 
     // RESTApi: Main 
     router.get('/api', async (req, res) => {

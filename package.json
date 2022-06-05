@@ -23,6 +23,7 @@
     "moment": "^2.29.3",
     "mongoose": "^6.3.3",
     "net-ipc": "^2.0.1",
+    "node-cache": "^5.1.2",
     "passport": "^0.5.2",
     "passport-discord": "^0.1.4",
     "passport-oauth2-refresh": "^2.1.0"

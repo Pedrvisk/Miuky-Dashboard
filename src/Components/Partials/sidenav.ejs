@@ -23,7 +23,7 @@
           <div>
             <img crossorigin="anonymous" src="<%= guild.iconURL === null ? '/img/miuky.png' : guild.icon.startsWith('a_') ? guild.iconURL.replace('.webp', '.gif') : guild.iconURL %>" alt="<%= guild.name %>" class="rounded-circle" style="height: 100%; width: 50px;">
             <br>
-            <%= guild.name %>
+            <%= guild.name.slice(0, 18) %>
           </div>
           <% } else { %>
           <div>
@@ -33,7 +33,7 @@
               </span>
             </div>
             <div>
-              <%= guild.name %>
+              <%= guild.name.slice(0, 18) %>
             </div>
           </div>
           <% } %>
@@ -59,7 +59,6 @@
         </span>
         <i class="fas fa-angle-up"></i>
       </button>
-
       <div id="collapse-<%= section %>" class="collapse show">
         <% for (let tabs of t('sidenav.sections')[section]) { %>
         <a class="collapse-link" href="<%= t('route.servers') %>/<%= guild.id %><%= tabs.href %>">

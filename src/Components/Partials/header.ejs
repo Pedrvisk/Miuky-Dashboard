@@ -1,377 +1,361 @@
 <nav class="navbar navbar-expand-lg fixed-top p-1" id="navbar-header" style="box-shadow: none;">
-    <div class="container-fluid mx-1 mx-lg-5" style="border-radius: 5px; padding: 5px 10px; background: #2C2F33;">
-
-        <!-- Navbar Icon -->
-        <a class="navbar-brand placeholder-wave" href="<%= t('route.home') %>">
-            <img src="/img/miuky.png" alt="Miuky" height="40px" loading="lazy" class="rounded">
-        </a>
-
-        <!-- Mobile Button -->
-        <button class="navbar-toggler button-navbar" type="button" data-mdb-toggle="collapse"
-            data-mdb-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <div class="animated-icon"><span></span><span></span><span></span><span></span></div>
-        </button>
-
-        <!-- Mobile Adapted -->
-        <div class="collapse navbar-collapse" id="navbarMobile"
-            style="transition: height 0.1s ease-in-out; padding: 0 10px;">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item text-center">
-                    <a class="nav-link" href="<%= t('route.home') %>">
-                        <i class="fas fa-home"></i>
-                        <%= t('header.navbar.home').toUpperCase() %>
-                    </a>
-                </li>
-                <li class="nav-item text-center">
-                    <a class="nav-link" href="<%= t('route.commands') %>">
-                        <i class="fas fa-list-alt"></i>
-                        <%= t('header.navbar.commands').toUpperCase() %>
-                    </a>
-                </li>
-                <li class="nav-item text-center">
-                    <a class="nav-link" href="<%= t('route.status') %>">
-                        <i class="fas fa-server"></i>
-                        STATUS
-                    </a>
-                </li>
-                <li class="nav-item text-center">
-                    <a class="nav-link" href="<%= t('route.privacy') %>">
-                        <i class="fas fa-shield-alt"></i>
-                        <%= t('header.navbar.privacy').toUpperCase() %>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Mobile Fixed Nav-Items -->
-        <ul class="navbar-nav ml-auto fixedNavbarMobile">
-            <div class="d-flex align-items-center" id="fixed-items">
-                <!-- _____________________________________________________________________________________________________ -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle hidden-arrow " id="navbarDropdownLang" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-language fa-2x miuky-color"></i>
-                        <span class="badge badge-dot rounded">
-                            <img class="miuky-shadow" src="<%= t('header.dropdown.language.icon') %>" loading="lazy" alt="<%= t('header.dropdown.language.name') %>" title="<%= t('header.dropdown.language.name') %>" height="15px" style="border-radius: 2px;" />
-                        </span>
-                    </a>
-                    <!-- _____________________________________________________________________________________________________ -->
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownLang" style="left: 0; right: auto;">
-                        <li>
-                            <h6 class="dropdown-header text-center" style="color: rgba(240, 248, 255, 0.80);">
-                                <%= t('header.dropdown.language.title') %> 
-                                <span class="badge rounded bg-warning" style="color: black;">
-                                    <%= t('header.dropdown.language.name') %>
-                                </span>
-                            </h6>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider m-0" style="border: 1px solid #23272A; opacity: 100%;" />
-                        </li>
-                        <!-- _____________________________________________________________________________________________________ -->
-                        <% lang.available.forEach((language)=> {
-                            if (language.code === getLocale()) return;
-                            if (language.code === 'en' ) { %>
-                            <li>
-                                <a class="dropdown-item d-flex align-items-center text-center p-0" href="<%= formatUrl %>">
-                                    <div class="bg-image" style="height: 100%; width: 45px; right: 4px;">
-                                        <img src="/img/locales/en.png" loading="lazy" alt="<%= language.name.native.full %>" title="<%= language.name.native.full %>" style="width: 100%; height: 100%;">
-                                    </div>
-                                    <div class="px-1" style="font-weight: 550;">
-                                        <%= language.name.native.full %>
-                                    </div>
-                                </a>
-                            </li>
-                            <% } else { %>
-                                <li>
-                                    <a class="dropdown-item d-flex align-items-center text-center p-0"  href="/<%= language.code %><%= formatUrl %>">
-                                        <div class="bg-image" style="height: 100%; width: 45px; right: 4px">
-                                            <img src="/img/locales/<%= language.code %>.png" loading="lazy" alt="<%= language.name.native.full %>" title="<%= language.name.native.full %>" style="width: 100%; height: 100%;">
-                                        </div>
-                                        <div class="px-1" style="font-weight: 550;">
-                                            <%= language.name.native.full %>
-                                        </div>
-                                    </a>
-                                </li>
-                            <% } 
-                        }); %>
-                        <!-- _____________________________________________________________________________________________________ -->
-                    </ul>
-                </li>
-                <!-- _____________________________________________________________________________________________________ -->
-                <% if (user) { %>
-                    <li class="nav-item dropdown ms-3 me-3 me-lg-2">
-                        <a class="nav-link dropdown-toggle hidden-arrow ripple p-0 rounded " id="navbarDropdownLogin" role="button" data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-ripple-color="#f0f8ff">
-                            <div class="bg-image rounded" style="height: 45px; width: 130px;">
-                                <img crossorigin="anonymous" loading="lazy" src="<%= user.banner === null ? '/img/background.png' : user.banner %>" style="width: 100%; height: 100%;" />
-                                <div class="mask rounded" style="background: rgba(0, 0, 0, 0.5); width: 100%; height: 100%;">
-                                    <div class="d-flex justify-content-center align-items-center h-100">
-                                        <div>
-                                            <img crossorigin="anonymous" loading="lazy" src="<%= user.avatar === null ? '/img/miuky.png' : user.avatar %>" alt="<%= user.username %>" class="rounded-circle" style="height: 100%; width: 40px;">
-                                        </div>
-                                        <div>
-                                            <strong class="miuky-color ms-1">
-                                                <%= user.username %>
-                                            </strong>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <!-- _____________________________________________________________________________________________________ -->
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
-                            <li>
-                                <h6 class="dropdown-header text-center" style="color: rgba(240, 248, 255, 0.80);">
-                                    <%= t('header.navbar.user.title') %> 
-                                    <span class="badge rounded bg-warning" style="color: black;">
-                                        <i class="fas fa-star"></i>
-                                        <%= t('new') %>
-                                    </span>
-                                </h6>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider m-0" style="border: 1px solid #23272A; opacity: 100%;" />
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-center" href="<%= t('route.servers') %>" style="font-weight: 550;">
-                                    <%= t('header.navbar.user.servers') %>
-                                </a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider m-0" style="border: 1px solid #23272A; opacity: 100%;" />
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-center" id="logout" href="<%= t('route.discord.logout') %>">
-                                    <strong>
-                                        <i class="fas fa-sign-out-alt"></i>
-                                        <%= t('header.navbar.user.logout') %>
-                                    </strong>
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- _____________________________________________________________________________________________________ -->
-                    </li>
-                <!-- _____________________________________________________________________________________________________ -->
-                <% } else { %>
-                    <li class="nav-item mx-3 me-lg-2">
-                        <a class="nav-link" id="login-button" href="<%= t('route.discord.login') %>" style="font-weight: bold !important;">
-                            <i class="fas fa-sign-in-alt"></i>
-                            <%= t('header.navbar.login').toUpperCase() %>
-                        </a>
-                    </li>
-                <% } %>
-                    <li class="nav-item d-none d-lg-block me-1">
-                        <a class="nav-link" id="discord-button" href="<%= t('route.support') %>">
-                            <i class="fab fa-discord fa-lg"></i>
-                        </a>
-                    </li>
-                <!-- _____________________________________________________________________________________________________ -->
-            </div>
-        </ul>
-        <!-- _____________________________________________________________________________________________________ -->
+  <div class="container-fluid mx-1 mx-lg-5" style="border-radius: 5px; padding: 5px 10px; background: #2C2F33;">
+    <a class="navbar-brand placeholder-wave" href="<%= t('route.home') %>">
+      <img src="/img/miuky.png" alt="Miuky" height="40px" loading="lazy" class="rounded">
+    </a>
+    <button class="navbar-toggler button-navbar" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span><span></span></div>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarMobile" style="transition: height 0.1s ease-in-out; padding: 0 10px;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item text-center">
+          <a class="nav-link" href="<%= t('route.home') %>">
+            <i class="fas fa-home"></i>
+            <%= t('header.navbar.home').toUpperCase() %>
+          </a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="<%= t('route.commands') %>">
+            <i class="fas fa-list-alt"></i>
+            <%= t('header.navbar.commands').toUpperCase() %>
+          </a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="<%= t('route.status') %>">
+            <i class="fas fa-server"></i>
+            STATUS
+          </a>
+        </li>
+        <li class="nav-item text-center">
+          <a class="nav-link" href="<%= t('route.privacy') %>">
+            <i class="fas fa-shield-alt"></i>
+            <%= t('header.navbar.privacy').toUpperCase() %>
+          </a>
+        </li>
+      </ul>
     </div>
+    <ul class="navbar-nav ml-auto fixedNavbarMobile">
+      <div class="d-flex align-items-center" id="fixed-items">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle hidden-arrow " id="navbarDropdownLang" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-language fa-2x miuky-color"></i>
+            <span class="badge badge-dot rounded">
+              <img class="miuky-shadow" src="<%= t('header.dropdown.language.icon') %>" loading="lazy" alt="<%= t('header.dropdown.language.name') %>" title="<%= t('header.dropdown.language.name') %>" height="15px" style="border-radius: 2px;" />
+            </span>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLang" style="left: 0; right: auto;">
+            <li>
+              <h6 class="dropdown-header text-center" style="color: rgba(240, 248, 255, 0.80);">
+                <%= t('header.dropdown.language.title') %>
+                <span class="badge rounded bg-warning" style="color: black;">
+                  <%= t('header.dropdown.language.name') %>
+                </span>
+              </h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider m-0" style="border: 1px solid #23272A; opacity: 100%;" />
+            </li>
+            <% lang.available.forEach((language)=> {
+            if (language.code === getLocale()) return;
+            if (language.code === 'en' ) { %>
+            <li>
+              <a class="dropdown-item d-flex align-items-center text-center p-0" href="<%= formatUrl %>">
+                <div class="bg-image" style="height: 100%; width: 45px; right: 4px;">
+                  <img src="/img/locales/en.png" loading="lazy" alt="<%= language.name.native.full %>" title="<%= language.name.native.full %>" style="width: 100%; height: 100%;">
+                </div>
+                <div class="px-1" style="font-weight: 550;">
+                  <%= language.name.native.full %>
+                </div>
+              </a>
+            </li>
+            <% } else { %>
+            <li>
+              <a class="dropdown-item d-flex align-items-center text-center p-0" href="/<%= language.code %><%= formatUrl %>">
+                <div class="bg-image" style="height: 100%; width: 45px; right: 4px">
+                  <img src="/img/locales/<%= language.code %>.png" loading="lazy" alt="<%= language.name.native.full %>" title="<%= language.name.native.full %>" style="width: 100%; height: 100%;">
+                </div>
+                <div class="px-1" style="font-weight: 550;">
+                  <%= language.name.native.full %>
+                </div>
+              </a>
+            </li>
+            <% } }); %>
+          </ul>
+        </li>
+        <% if (user) { %>
+        <li class="nav-item dropdown ms-3 me-3 me-lg-2">
+          <a class="nav-link dropdown-toggle hidden-arrow ripple p-0 rounded " id="navbarDropdownLogin" role="button" data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-ripple-color="#f0f8ff">
+            <div class="bg-image rounded" style="height: 45px; width: 130px;">
+              <% if (user.banner !== null) { %>
+              <img crossorigin="anonymous" loading="lazy" src="<%= user.banner === null ? '/img/background.png' : user.banner %>" style="width: 100%; height: 100%;" />
+              <% } else { %>
+              <img crossorigin="anonymous" loading="lazy" src="<%= user.avatar === null ? '/img/background.png' : user.avatar %>" style="width: 100%; height: 100%; transform: scale(1.4); filter: blur(10px); opacity: 0.3; inset: 0px;" />
+              <% } %>
+              <div class="mask rounded" style="background: rgba(0, 0, 0, 0.5); width: 100%; height: 100%;">
+                <div class="d-flex justify-content-center align-items-center h-100">
+                  <% if (user.avatar !== null) { %>
+                  <div class="me-1">
+                    <img crossorigin="anonymous" loading="lazy" src="<%= user.avatar === null ? '/img/miuky.png' : user.avatar %>" alt="<%= user.username %>" class="rounded-circle" style="height: 100%; width: 37px;">
+                  </div>
+                  <% } %>
+                  <div>
+                    <strong class="miuky-color">
+                      <%= user.username.split(0, 9) %>
+                    </strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownLogin">
+            <li>
+              <h6 class="dropdown-header text-center" style="color: rgba(240, 248, 255, 0.80);">
+                <%= t('header.navbar.user.title') %>
+                <span class="badge rounded bg-warning" style="color: black;">
+                  <i class="fas fa-star"></i>
+                  <%= t('new') %>
+                </span>
+              </h6>
+            </li>
+            <li>
+              <hr class="dropdown-divider m-0" style="border: 1px solid #23272A; opacity: 100%;" />
+            </li>
+            <li>
+              <a class="dropdown-item text-center" href="<%= t('route.servers') %>" style="font-weight: 550;">
+                <%= t('header.navbar.user.servers') %>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider m-0" style="border: 1px solid #23272A; opacity: 100%;" />
+            </li>
+            <li>
+              <a class="dropdown-item text-center" id="logout" href="<%= t('route.discord.logout') %>">
+                <strong>
+                  <i class="fas fa-sign-out-alt"></i>
+                  <%= t('header.navbar.user.logout') %>
+                </strong>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <% } else { %>
+        <li class="nav-item mx-3 me-lg-2">
+          <a class="nav-link" id="login-button" href="<%= t('route.discord.login') %>" style="font-weight: bold !important;">
+            <i class="fas fa-sign-in-alt"></i>
+            <%= t('header.navbar.login').toUpperCase() %>
+          </a>
+        </li>
+        <% } %>
+        <li class="nav-item d-none d-lg-block me-1">
+          <a class="nav-link" id="discord-button" href="<%= t('route.support') %>">
+            <i class="fab fa-discord fa-lg"></i>
+          </a>
+        </li>
+      </div>
+    </ul>
+  </div>
 </nav>
 
 <style>
-    #navbarMobile .nav-link {
-        color: aliceblue !important;
-        border-radius: 0.5vh;
-        /* ------ */
-        letter-spacing: 0.1vh;
-        margin: 0 0.5vh;
-        /* ------ */
-        transition: all 0.5s ease;
+  #navbarMobile .nav-link {
+    color: aliceblue !important;
+    border-radius: 0.5vh;
+    /* ------ */
+    letter-spacing: 0.1vh;
+    margin: 0 0.5vh;
+    /* ------ */
+    transition: all 0.5s ease;
+  }
+
+  #navbarMobile .nav-link:hover {
+    color: black !important;
+    background: aliceblue;
+    /* ------ */
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  }
+
+  .navbar-scroll {
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
+    background-color: #2C2F33;
+  }
+
+  #login-button {
+    background: aliceblue;
+    color: black;
+    font-weight: bolder;
+    /* ------ */
+    border-radius: 5px;
+    padding: 7px 14px;
+    /* ------ */
+    transition: all 0.5s ease;
+  }
+
+  #login-button:hover {
+    color: rgba(0, 0, 0, 0.70);
+    background: rgba(240, 248, 255, 0.70);
+  }
+
+  #discord-button {
+    color: aliceblue;
+    transition: all 0.5s ease;
+  }
+
+  #discord-button:hover {
+    color: rgb(240, 248, 255, 0.80);
+  }
+
+  /* Dropdown Animation */
+  #navbar-header .dropdown .dropdown-menu {
+    background: #2C2F33;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    /* ------ */
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.6s;
+    /* ------ */
+    min-width: 100%;
+    max-height: 0;
+    /* ------ */
+    display: block;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  #navbar-header .dropdown:hover .dropdown-menu {
+    max-height: 200px;
+    opacity: 1;
+  }
+
+  #navbar-header .dropdown-header {
+    padding: 7px;
+    font-size: 12px;
+  }
+
+  #navbar-header .dropdown-item {
+    color: aliceblue;
+    font-size: 13px;
+    /* ------ */
+    transition: all 0.3s ease;
+  }
+
+  #navbar-header .dropdown-item:hover {
+    color: black;
+    background: aliceblue;
+  }
+
+  #navbar-header #logout {
+    color: #ff2400;
+    padding: 4px !important;
+  }
+
+  #navbar-header #logout:hover {
+    color: aliceblue;
+    background: #ff2400;
+  }
+
+  /* Navbar Animated Icon */
+  .animated-icon {
+    width: 30px;
+    height: 20px;
+    /* ------ */
+    position: relative;
+    margin: 0px;
+    /* ------ */
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    /* ------ */
+    -webkit-transition: 0.1s ease-in-out;
+    -moz-transition: 0.1s ease-in-out;
+    -o-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+    /* ------ */
+    cursor: pointer;
+  }
+
+  .animated-icon span {
+    display: block;
+    position: absolute;
+    /* ------ */
+    height: 3px;
+    width: 100%;
+    /* ------ */
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    /* ------ */
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    /* ------ */
+    -webkit-transition: 0.1s ease-in-out;
+    -moz-transition: 0.1s ease-in-out;
+    -o-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+  }
+
+  .animated-icon span {
+    background: aliceblue;
+  }
+
+  .animated-icon span:nth-child(1) {
+    top: 0px;
+  }
+
+  .animated-icon span:nth-child(2),
+  .animated-icon span:nth-child(3) {
+    top: 10px;
+  }
+
+  .animated-icon span:nth-child(4) {
+    top: 20px;
+  }
+
+  .animated-icon.open span:nth-child(1) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+  }
+
+  .animated-icon.open span:nth-child(2) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .animated-icon.open span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .animated-icon.open span:nth-child(4) {
+    top: 11px;
+    width: 0%;
+    left: 50%;
+  }
+
+  /* Mobile */
+  @media only screen and (max-width: 1200px) {
+
+    .fixedNavbarMobile {
+      position: absolute;
+      top: 10px;
+      right: 50px;
     }
 
-    #navbarMobile .nav-link:hover {
-        color: black !important;
-        background: aliceblue;
-        /* ------ */
-        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    #fixed-items .nav-link {
+      margin: 0 0.5vh;
     }
 
-    .navbar-scroll {
-        box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
-        background-color: #2C2F33;
+    #navbar-header .container-fluid {
+      padding: 0;
     }
-
-    #login-button {
-        background: aliceblue;
-        color: black;
-        font-weight: bolder;
-        /* ------ */
-        border-radius: 5px;
-        padding: 7px 14px;
-        /* ------ */
-        transition: all 0.5s ease;
-    }
-
-    #login-button:hover {
-        color: rgba(0, 0, 0, 0.70);
-        background: rgba(240, 248, 255, 0.70);
-    }
-
-    #discord-button {
-        color: aliceblue;
-        transition: all 0.5s ease;
-    }
-
-    #discord-button:hover {
-        color: rgb(240, 248, 255, 0.80);
-    }
-
-    /* Dropdown Animation */
-    #navbar-header .dropdown .dropdown-menu {
-        background: #2C2F33;
-        box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
-        /* ------ */
-        -webkit-transition: all 1s ease;
-        -moz-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all 0.6s;    
-        /* ------ */
-        min-width: 100%;
-        max-height: 0;
-        /* ------ */
-        display: block;
-        opacity: 0;
-        overflow: hidden;
-    }
-
-    #navbar-header .dropdown:hover .dropdown-menu {
-        max-height: 200px;
-        opacity: 1;
-    }
-
-    #navbar-header .dropdown-header {
-        padding: 7px;
-        font-size: 12px;
-    }
-
-    #navbar-header .dropdown-item {
-        color: aliceblue;
-        font-size: 13px;
-        /* ------ */
-        transition: all 0.3s ease;
-    }
-
-    #navbar-header .dropdown-item:hover {
-        color: black;
-        background: aliceblue;
-    }
-
-    #navbar-header #logout {
-        color: #ff2400;
-        padding: 4px !important;
-    }
-
-    #navbar-header #logout:hover {
-        color: aliceblue;
-        background: #ff2400;
-    }
-
-    /* Navbar Animated Icon */
-    .animated-icon {
-        width: 30px;
-        height: 20px;
-        /* ------ */
-        position: relative;
-        margin: 0px;
-        /* ------ */
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-        /* ------ */
-        -webkit-transition: 0.1s ease-in-out;
-        -moz-transition: 0.1s ease-in-out;
-        -o-transition: 0.1s ease-in-out;
-        transition: 0.1s ease-in-out;
-        /* ------ */
-        cursor: pointer;
-    }
-
-    .animated-icon span {
-        display: block;
-        position: absolute;
-        /* ------ */
-        height: 3px;
-        width: 100%;
-        /* ------ */
-        border-radius: 9px;
-        opacity: 1;
-        left: 0;
-        /* ------ */
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-        /* ------ */
-        -webkit-transition: 0.1s ease-in-out;
-        -moz-transition: 0.1s ease-in-out;
-        -o-transition: 0.1s ease-in-out;
-        transition: 0.1s ease-in-out;
-    }
-
-    .animated-icon span {
-        background: aliceblue;
-    }
-
-    .animated-icon span:nth-child(1) {
-        top: 0px;
-    }
-
-    .animated-icon span:nth-child(2),
-    .animated-icon span:nth-child(3) {
-        top: 10px;
-    }
-
-    .animated-icon span:nth-child(4) {
-        top: 20px;
-    }
-
-    .animated-icon.open span:nth-child(1) {
-        top: 11px;
-        width: 0%;
-        left: 50%;
-    }
-
-    .animated-icon.open span:nth-child(2) {
-        -webkit-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-
-    .animated-icon.open span:nth-child(3) {
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        transform: rotate(-45deg);
-    }
-
-    .animated-icon.open span:nth-child(4) {
-        top: 11px;
-        width: 0%;
-        left: 50%;
-    }
-
-    /* Mobile */
-    @media only screen and (max-width: 1200px) {
-
-        .fixedNavbarMobile {
-            position: absolute;
-            top: 10px;
-            right: 50px;
-        }
-
-        #fixed-items .nav-link {
-            margin: 0 0.5vh;
-        }
-
-        #navbar-header .container-fluid {
-            padding: 0;
-        }
-    }
+  }
 </style>

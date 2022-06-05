@@ -23,15 +23,16 @@ $(document).ready(() => {
     });
 
     $('#saveForm').click(function (e) {
-        const isEmbed = $('#messages-tab .nav-link.active').data('myembed');
-        if (isEmbed === 'true') {
-            $('#MessageEmbed').val('true');
+        if (!$('.miuky-select input[name="channel"]:checked').val()) {
+            return $('.miuky-select .miuky-input-error').css({ 'display': 'block' });
         } else {
-            $('#MessageEmbed').val('false');
+            $('.miuky-select .miuky-input-error').css({ 'display': 'none' });
+        }
 
-            if (!$('.miuky-textarea').val().length) {
-                console.log('textarea')
-            }
+        if (!$('.miuky-textarea').val().length) {
+            return $('.miuky-areatext .miuky-input-error').css({ 'display': 'block' });
+        } else {
+            $('.miuky-areatext .miuky-input-error').css({ 'display': 'none' });
         }
 
         $('#formSave')[0].submit();
@@ -41,7 +42,8 @@ $(document).ready(() => {
         $('#formSave')[0].reset();
         $('#placeholder').text($('#placeholder').data('titleselect'));
         $('#MessageTextareaCounter').text(`${$('.miuky-textarea').val().length} / ${$('.miuky-textarea').attr('maxlength')}`);
-
+        $('.miuky-input-error').css({ 'display': 'none' });
+        
         setTimeout(() => {
             $('#save-popup').addClass('hidden');
             setTimeout(() => $('#save-popup').addClass('none'), 800);

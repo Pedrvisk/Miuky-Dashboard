@@ -11,91 +11,77 @@
     <%- include('../../Partials/header') %>
   </header>
   <!-- _____________________________________________________________________________________________________ -->
-  <main class="container-fluid p-md-5 p-3 miuky-color">
-    <div class="container-box p-3 p-lg-4">
-      <button class="text-white-50 pe-2 pe-lg-0 d-flex align-items-center justify-content-between w-100 border-0 bg-transparent" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapse-welcome-main" aria-expanded="true" aria-controls="collapse-welcome-main">
-        <h5 class="tag-section text-start m-0">
-          Enviar uma mensagem quando um usuário entrar no servidor
-        </h5>
-        <i class="fas fa-angle-up fa-lg"></i>
-      </button>
-
-      <div id="collapse-welcome-main" class="collapse show mt-4" style="border-top: 1px solid rgb(35, 39, 42);">
-        <div class="mt-4 p-3">
-          <div class="box-section mt-0 w-100">
-            <span style="font-size: 16px; line-height: 16px; font-weight: 600; letter-spacing: 0.05em;">
-              Canal de texto para Boas-vindas
+  <main class="container-fluid p-4 p-md-5 miuky-color">
+    <div class="container-box">
+      <ul class="nav nav-tabs mb-3 nav-justified bg-dark" style="border-radius: 10px;" id="messages-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active h-100 w-100 ripple" style="border-start-start-radius: 10px; border-end-start-radius: 10px;" id="textMessage-tab" data-mdb-toggle="tab" data-mdb-target="#textMessage" type="button" role="tab" aria-controls="textMessages" aria-selected="true">
+            <span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.05em;">
+              Mensagem
             </span>
-            <div class="miuky-select">
-              <button class="miuky-select-button hidden-arrow dropdown-toggle text-muted w-100" role="button" aria-expanded="false" data-mdb-toggle="dropdown" id="dropdownChannel">
-                <div class="d-flex align-items-center">
-                  <svg height="18px" class="me-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="sc-bjUoiL PlMdp" main="#f0f8ff">
-                    <path data-fill="main" fill="#f0f8ff" fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z">
-                    </path>
-                  </svg>
-                  <span id="placeholder" data-titleSelect="Selecione um canal...">Selecione um canal...</span>
-                </div>
-                <i class="fas fa-angle-down fa-lg text-muted"></i>
-              </button>
-              <div class="submit-error">
-
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link h-100 w-100 ripple" style="border-end-end-radius: 10px; border-start-end-radius: 10px;" id="embedMessage-tab" data-mdb-toggle="tab" data-mdb-target="#embedMessage" type="button" role="tab" aria-controls="embedMessages" aria-selected="false">
+            <span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.05em;">
+              Mensagem em Emblema
+            </span>
+          </button>
+        </li>
+      </ul>
+      <div class="tab-content" id="messages-tab">
+        <div class="tab-pane fade show active" id="textMessage" role="tabpanel" aria-labelledby="textMessage-tab">
+          <div class="tab-section">
+            <div class="miuky-areatext w-100">
+              <div class="shadow-textarea w-100 position-relative">
+                <textarea class="inputForm miuky-textarea text-muted z-depth-1 w-100" form="formSave" name="mensagem" rows="4" spellcheck="false" wrap="hard" placeholder="Escreva a mensagem..." maxlength='1500'>Olá {user}, seja bem-vindo ao **{server}**, temos agora **{membercount}** membros!</textarea>
+                <span id="MessageTextareaCounter" class="position-absolute bottom-0 end-0 mb-3 me-1 me-md-3 fw-normal badge" style="color: rgba(240, 248, 255, 0.7); font-size: 15px;">
+                  82 / 1500
+                </span>
               </div>
-              <ul class="dropdown-menu" aria-labelledby="dropdownChannel">
-                <% for (let channel of guild.channels) { %>
-                <li class="dropdown-item">
-                  <svg height="20px" class="ms-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="sc-bjUoiL PlMdp" main="#f0f8ff">
-                    <path data-fill="main" fill="#f0f8ff" fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z">
-                    </path>
-                  </svg>
-                  <input type="radio" value="<%= channel.id %>" form="formSave" class="inputForm" name="channel" data-placeholder="<%= channel.name %>" title="<%= channel.name %>">
-                </li>
-                <% } %>
-              </ul>
-            </div>
-          </div>
-          <hr style="background: rgb(35, 39, 42); border: 1px solid rgb(35, 39, 42); opacity: 75%;">
-          <div class="box-section w-100">
-            <input type="hidden" id="MessageEmbed" form="formSave" name="embed" value="">
-            <ul class="nav nav-tabs mb-3 nav-justified bg-dark" style="border-radius: 10px;" id="messages-tab" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active h-100 w-100 ripple" data-my-embed="false" style="border-start-start-radius: 10px; border-end-start-radius: 10px;" id="textMessage-tab" data-mdb-toggle="tab" data-mdb-target="#textMessage" type="button" role="tab" aria-controls="textMessages" aria-selected="true">
-                  <span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.05em;">
-                    Mensagem
-                  </span>
-                </button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link h-100 w-100 ripple" data-my-embed="true" style="border-end-end-radius: 10px; border-start-end-radius: 10px;" id="embedMessage-tab" data-mdb-toggle="tab" data-mdb-target="#embedMessage" type="button" role="tab" aria-controls="embedMessages" aria-selected="false">
-                  <span style="font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.05em;">
-                    Mensagem em Emblema
-                  </span>
-                </button>
-              </li>
-            </ul>
-            <div class="tab-content" id="messages-tab">
-              <div class="tab-pane fade show active" id="textMessage" role="tabpanel" aria-labelledby="textMessage-tab">
-                <div class="tab-section">
-                  <div class="w-100">
-                    <div class="shadow-textarea w-100 position-relative">
-                      <textarea class="inputForm miuky-textarea text-muted z-depth-1 w-100" form="formSave" name="mensagem" rows="4" spellcheck="false" wrap="hard" placeholder="Escreva a mensagem..." maxlength='1500'>Olá {user}, seja bem-vindo ao **{server}**, temos agora **{membercount}** membros!</textarea>
-                      <span id="MessageTextareaCounter" class="position-absolute bottom-0 end-0 mb-3 me-1 me-md-3 fw-normal badge" style="color: rgba(240, 248, 255, 0.7); font-size: 15px;">
-                        82 / 1500
-                      </span>
-                    </div>
-                    <div class="submit-error">
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="embedMessage" role="tabpanel" aria-labelledby="embedMessage-tab">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eos molestiae
-                reiciendis fuga quo. Soluta repudiandae aut qui, iste, quas hic ullam necessitatibus
-                excepturi minus suscipit dignissimos distinctio aperiam nihil!
+              <div class="mt-0 miuky-input-error">
+                Este campo é obrigatório
               </div>
             </div>
           </div>
         </div>
+        <div class="tab-pane fade" id="embedMessage" role="tabpanel" aria-labelledby="embedMessage-tab">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eos molestiae
+          reiciendis fuga quo. Soluta repudiandae aut qui, iste, quas hic ullam necessitatibus
+          excepturi minus suscipit dignissimos distinctio aperiam nihil!
+        </div>
+      </div>
+    </div>
+    <hr class="mt-1 rounded-pill" style="background: #2C2F33; border: 3px solid #2C2F33; opacity: 100%;">
+    <div class="container-box">
+      <span style="font-size: 16px; line-height: 16px; font-weight: 600; letter-spacing: 0.05em;">
+        Canal de texto para Boas-vindas
+      </span>
+      <div class="miuky-select">
+        <button class="miuky-select-button hidden-arrow dropdown-toggle text-muted" role="button" aria-expanded="false" data-mdb-toggle="dropdown" id="dropdownChannel">
+          <div class="d-flex align-items-center">
+            <svg height="18px" class="me-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="sc-bjUoiL PlMdp" main="#f0f8ff">
+              <path data-fill="main" fill="#f0f8ff" fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z">
+              </path>
+            </svg>
+            <span id="placeholder" data-titleSelect="Selecione um canal...">Selecione um canal...</span>
+          </div>
+          <i class="fas fa-angle-down fa-lg text-muted"></i>
+        </button>
+        <div class="miuky-input-error">
+          Este campo é obrigatório
+        </div>
+        <ul class="dropdown-menu w-50" aria-labelledby="dropdownChannel">
+          <% for (let channel of guild.channels) { %>
+          <li class="dropdown-item">
+            <svg height="20px" class="ms-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="sc-bjUoiL PlMdp" main="#f0f8ff">
+              <path data-fill="main" fill="#f0f8ff" fill-rule="evenodd" clip-rule="evenodd" d="M5.88657 21C5.57547 21 5.3399 20.7189 5.39427 20.4126L6.00001 17H2.59511C2.28449 17 2.04905 16.7198 2.10259 16.4138L2.27759 15.4138C2.31946 15.1746 2.52722 15 2.77011 15H6.35001L7.41001 9H4.00511C3.69449 9 3.45905 8.71977 3.51259 8.41381L3.68759 7.41381C3.72946 7.17456 3.93722 7 4.18011 7H7.76001L8.39677 3.41262C8.43914 3.17391 8.64664 3 8.88907 3H9.87344C10.1845 3 10.4201 3.28107 10.3657 3.58738L9.76001 7H15.76L16.3968 3.41262C16.4391 3.17391 16.6466 3 16.8891 3H17.8734C18.1845 3 18.4201 3.28107 18.3657 3.58738L17.76 7H21.1649C21.4755 7 21.711 7.28023 21.6574 7.58619L21.4824 8.58619C21.4406 8.82544 21.2328 9 20.9899 9H17.41L16.35 15H19.7549C20.0655 15 20.301 15.2802 20.2474 15.5862L20.0724 16.5862C20.0306 16.8254 19.8228 17 19.5799 17H16L15.3632 20.5874C15.3209 20.8261 15.1134 21 14.8709 21H13.8866C13.5755 21 13.3399 20.7189 13.3943 20.4126L14 17H8.00001L7.36325 20.5874C7.32088 20.8261 7.11337 21 6.87094 21H5.88657ZM9.41045 9L8.35045 15H14.3504L15.4104 9H9.41045Z">
+              </path>
+            </svg>
+            <input type="radio" value="<%= channel.id %>" form="formSave" class="inputForm" name="channel" data-placeholder="<%= channel.name %>" title="<%= channel.name %>">
+          </li>
+          <% } %>
+        </ul>
       </div>
     </div>
   </main>
@@ -109,48 +95,28 @@
 </body>
 
 <style>
-  .box-section .nav-link {
+  .container-box .nav-link {
     color: aliceblue;
     border: none;
   }
 
-  .box-section .nav-link.active {
+  .container-box .nav-link.active {
     background: rgb(23, 24, 30);
     box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 4px;
     border: none;
     color: aliceblue;
   }
 
-  .box-section .nav-link:hover {
+  .container-box .nav-link:hover {
     background: rgb(23, 24, 30);
     box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 4px;
     border: none;
-  }
-
-  .box-section {
-    margin: 20px 0;
   }
 
   .container-box {
-    background: #2C2F33;
     margin: 20px 0;
     color: aliceblue;
     border-radius: 5px;
-  }
-
-  .container-box .fas {
-    transition: .3s transform ease-in-out;
-    -o-transition: .3s transform ease-in-out;
-    -moz-transition: .3s transform ease-in-out;
-    -webkit-transition: .3s transform ease-in-out;
-  }
-
-  .container-box .collapsed .fas {
-    transform: rotate(180deg);
-    -o-transform: rotate(180deg);
-    -ms-transform: rotate(180deg);
-    -moz-transform: rotate(180deg);
-    -webkit-transform: rotate(180deg);
   }
 
   /* Mobile */

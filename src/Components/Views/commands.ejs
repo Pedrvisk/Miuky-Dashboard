@@ -10,7 +10,6 @@
   <header>
     <%- include('../Partials/header') %>
   </header>
-  <!-- _____________________________________________________________________________________________________ -->
   <main class="d-flex justify-content-center align-items-start p-lg-5 p-2">
     <div>
       <% for (let category in commands) { %>
@@ -24,7 +23,6 @@
         <button type="button" class="miuky-button command-button" data-mdb-toggle="modal" data-mdb-target="#modal-<%= command.name %>">
           <%= command.name.toUpperCase() %><i class="fas fa-caret-down ms-1"></i>
         </button>
-
         <div class="modal fade miuky-color miuky-shadow" id="modal-<%= command.name %>" tabindex="-1" role="dialog" aria-labelledby="#modal-<%= command.name %>" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="background:#2C2F33;">
@@ -83,7 +81,6 @@
       <% } %>
     </div>
   </main>
-  <!-- _____________________________________________________________________________________________________ -->
   <footer>
     <%- include('../Partials/footer') %>
   </footer>

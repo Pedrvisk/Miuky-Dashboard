@@ -3,10 +3,10 @@
     <a class="navbar-brand placeholder-wave" href="<%= t('route.home') %>">
       <img src="/img/miuky.png" alt="Miuky" height="40px" loading="lazy" class="rounded">
     </a>
-    <button class="navbar-toggler button-navbar" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span><span></span></div>
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarMobile" aria-controls="navbarMobile" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="navbar-toggler-animation"><span></span><span></span><span></span><span></span></div>
     </button>
-    <div class="collapse navbar-collapse" id="navbarMobile" style="transition: height 0.1s ease-in-out; padding: 0 10px;">
+    <div class="collapse navbar-collapse" id="navbarMobile" style="transition: height 0.3s ease-in-out; padding: 0 10px;">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item text-center">
           <a class="nav-link" href="<%= t('route.home') %>">
@@ -83,7 +83,7 @@
           </ul>
         </li>
         <% if (user) { %>
-        <li class="nav-item dropdown ms-3 me-3 me-lg-2">
+        <li class="nav-item dropdown ms-3 me-1 me-lg-2">
           <a class="nav-link dropdown-toggle hidden-arrow ripple p-0 rounded " id="navbarDropdownLogin" role="button" data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-ripple-color="#f0f8ff">
             <div class="bg-image rounded" style="height: 45px; width: 130px;">
               <% if (user.banner !== null) { %>
@@ -160,34 +160,30 @@
   #navbarMobile .nav-link {
     color: aliceblue !important;
     border-radius: 0.5vh;
-    /* ------ */
     letter-spacing: 0.1vh;
     margin: 0 0.5vh;
-    /* ------ */
     transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
   }
 
   #navbarMobile .nav-link:hover {
     color: black !important;
     background: aliceblue;
-    /* ------ */
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
-  }
-
-  .navbar-scroll {
-    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
-    background-color: #2C2F33;
   }
 
   #login-button {
     background: aliceblue;
     color: black;
     font-weight: bolder;
-    /* ------ */
     border-radius: 5px;
     padding: 7px 14px;
-    /* ------ */
     transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
   }
 
   #login-button:hover {
@@ -204,20 +200,16 @@
     color: rgb(240, 248, 255, 0.80);
   }
 
-  /* Dropdown Animation */
   #navbar-header .dropdown .dropdown-menu {
     background: #2C2F33;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
-    /* ------ */
     -webkit-transition: all 1s ease;
     -moz-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.6s;
-    /* ------ */
     min-width: 100%;
     max-height: 0;
-    /* ------ */
     display: block;
     opacity: 0;
     overflow: hidden;
@@ -236,8 +228,10 @@
   #navbar-header .dropdown-item {
     color: aliceblue;
     font-size: 13px;
-    /* ------ */
     transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
   }
 
   #navbar-header .dropdown-item:hover {
@@ -255,93 +249,79 @@
     background: #ff2400;
   }
 
-  /* Navbar Animated Icon */
-  .animated-icon {
+  .navbar-toggler {
+    padding: 0;
+  }
+
+  .navbar-toggler-animation {
     width: 30px;
     height: 20px;
-    /* ------ */
     position: relative;
-    margin: 0px;
-    /* ------ */
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    /* ------ */
-    -webkit-transition: 0.1s ease-in-out;
-    -moz-transition: 0.1s ease-in-out;
-    -o-transition: 0.1s ease-in-out;
-    transition: 0.1s ease-in-out;
-    /* ------ */
+    margin: 0;
     cursor: pointer;
   }
 
-  .animated-icon span {
+  .navbar-toggler-animation span {
     display: block;
     position: absolute;
-    /* ------ */
-    height: 3px;
+    height: 4px;
     width: 100%;
-    /* ------ */
     border-radius: 9px;
     opacity: 1;
     left: 0;
-    /* ------ */
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
     transform: rotate(0deg);
-    /* ------ */
-    -webkit-transition: 0.1s ease-in-out;
-    -moz-transition: 0.1s ease-in-out;
-    -o-transition: 0.1s ease-in-out;
-    transition: 0.1s ease-in-out;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
   }
 
-  .animated-icon span {
+  .navbar-toggler-animation span {
     background: aliceblue;
   }
 
-  .animated-icon span:nth-child(1) {
+  .navbar-toggler-animation span:nth-child(1) {
     top: 0px;
   }
 
-  .animated-icon span:nth-child(2),
-  .animated-icon span:nth-child(3) {
+  .navbar-toggler-animation span:nth-child(2),
+  .navbar-toggler-animation span:nth-child(3) {
     top: 10px;
   }
 
-  .animated-icon span:nth-child(4) {
+  .navbar-toggler-animation span:nth-child(4) {
     top: 20px;
   }
 
-  .animated-icon.open span:nth-child(1) {
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-animation span:nth-child(1) {
     top: 11px;
     width: 0%;
     left: 50%;
   }
 
-  .animated-icon.open span:nth-child(2) {
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-animation span:nth-child(2) {
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
   }
 
-  .animated-icon.open span:nth-child(3) {
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-animation span:nth-child(3) {
     -webkit-transform: rotate(-45deg);
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
   }
 
-  .animated-icon.open span:nth-child(4) {
+  .navbar-toggler[aria-expanded="true"] .navbar-toggler-animation span:nth-child(4) {
     top: 11px;
     width: 0%;
     left: 50%;
   }
 
-  /* Mobile */
   @media only screen and (max-width: 1200px) {
 
     .fixedNavbarMobile {

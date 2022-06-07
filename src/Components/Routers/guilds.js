@@ -19,7 +19,7 @@ module.exports = (express, app, router, axios) => {
             }
         }
 
-        return app.template('dashboard/guilds')(req, res);
+        return app.template('dashboard/guilds', { guilds: user?.guilds || req.user.guilds })(req, res);
     });
 
     router.route('/guilds/:guildId').get(app.checkAuth, app.checkGuild, async (req, res) => {

@@ -10,7 +10,6 @@
   <header>
     <%- include('../Partials/header') %>
   </header>
-  <!-- _____________________________________________________________________________________________________ -->
   <main class="container-fluid mb-2 p-3 px-lg-5" id="privacy">
     <div class="miuky-color mb-5">
       <h3 class="text-center" style="color: cyan;">
@@ -36,14 +35,14 @@
           </div>
           <div class="discord-message-content">
             <% let features = t('privacy.politic.features');
-                            features.forEach((f) => { %>
+            features.forEach((f) => { %>
             <h5 class="text-info">
               <strong>
                 <%= f.name %>
               </strong>
             </h5>
-            <p class="rounded p-2 fw-normal" style="background: #2C2F33; color: rgba(240, 248, 255, 0.650);">
-              &nbsp;<%= f.description %>
+            <p class="rounded p-2 fw-normal" style="background: #2C2F33; color: rgba(240, 248, 255, 0.650); text-indent: 2px;">
+              <%= f.description %>
             </p>
             <% }) %>
           </div>
@@ -86,8 +85,8 @@
                 <%= f.name %>
               </strong>
             </h5>
-            <p class="rounded p-2 fw-normal" style="background: #2C2F33; color: rgba(240, 248, 255, 0.650);">
-              &nbsp;<%= f.description %>
+            <p class="rounded p-2 fw-normal" style="background: #2C2F33; color: rgba(240, 248, 255, 0.650); text-indent: 2px;">
+              <%= f.description %>
             </p>
             <% }) %>
           </div>
@@ -108,7 +107,6 @@
       </div>
     </div>
   </main>
-  <!-- _____________________________________________________________________________________________________ -->
   <footer>
     <%- include('../Partials/footer') %>
   </footer>

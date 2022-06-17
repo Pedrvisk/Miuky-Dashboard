@@ -1,10 +1,9 @@
-const { resolve } = require('path');
-const Dashboard = require(resolve('Dashboard.js'));
+const Dashboard = require('./Dashboard.js');
 
 // Dashboard: HTTPS/SSL
 require('greenlock-express').init({
     packageRoot: __dirname,
-    configDir: resolve('greenlock'),
+    configDir: './greenlock',
     maintainerEmail: 'YOUR_EMAIL',
     cluster: false
 }).serve(Dashboard);

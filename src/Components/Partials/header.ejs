@@ -36,7 +36,7 @@
     </div>
     <ul class="navbar-nav ml-auto fixedNavbarMobile">
       <div class="d-flex align-items-center" id="fixed-items">
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown me-4 me-lg-3">
           <a class="nav-link dropdown-toggle hidden-arrow " id="navbarDropdownLang" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
             <i class="fas fa-language fa-2x miuky-color"></i>
             <span class="badge badge-dot rounded">
@@ -83,7 +83,7 @@
           </ul>
         </li>
         <% if (user) { %>
-        <li class="nav-item dropdown ms-3 me-1 me-lg-2">
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle hidden-arrow ripple p-0 rounded " id="navbarDropdownLogin" role="button" data-mdb-toggle="dropdown" aria-expanded="false" data-mdb-ripple-color="#f0f8ff">
             <div class="bg-image rounded" style="height: 45px; width: 130px;">
               <% if (user.banner !== null) { %>
@@ -139,14 +139,14 @@
           </ul>
         </li>
         <% } else { %>
-        <li class="nav-item mx-3 me-lg-2">
+        <li class="nav-item">
           <a class="nav-link" id="login-button" href="<%= t('route.discord.login') %>" style="font-weight: bold !important;">
             <i class="fas fa-sign-in-alt"></i>
             <%= t('header.navbar.login').toUpperCase() %>
           </a>
         </li>
         <% } %>
-        <li class="nav-item d-none d-lg-block me-1">
+        <li class="nav-item d-none d-lg-block ms-2 me-1">
           <a class="nav-link" id="discord-button" href="<%= t('route.support') %>">
             <i class="fab fa-discord fa-lg"></i>
           </a>

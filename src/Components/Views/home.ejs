@@ -3,6 +3,35 @@
 
 <head>
   <%- include('../Partials/head') %>
+  <style>
+    #home .container-main .container-section {
+      height: auto;
+      padding: 20px;
+    }
+
+    #home .container-fluid {
+      padding: 0;
+    }
+
+    .carousel-item {
+      transition: transform 2s ease, opacity 0.5s ease-in-out;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .miuky-button {
+        font-size: 16px;
+      }
+
+      #carouselHomeHeader .carousel-item {
+        font-size: calc(0.45em + 1vmin);
+      }
+
+      #home .container-footer h3 {
+        font-size: 15px;
+      }
+
+    }
+  </style>
 </head>
 
 <body>
@@ -26,7 +55,7 @@
             <a href="<%= t('route.invite') %>" class="miuky-button me-lg-3 me-md-2">
               <i class="fas fa-plus"></i>
               <%= t('home.header.invite') %>
-            </a>            
+            </a>
             <a href="<%= user ? t('route.servers') : t('route.discord.login') %>" class="miuky-button position-relative d-none d-md-block">
               <i class="fas fa-sign-in-alt"></i>
               <%= t('home.header.dashboard') %>
@@ -36,7 +65,7 @@
               </span>
             </a>
           </div>
-        </div>       
+        </div>
       </div>
       <div class="container-main">
         <div class="container-box">
@@ -264,35 +293,5 @@
   </footer>
   <%- include('../Partials/cookie') %>
 </body>
-
-<style>
-  #home .container-main .container-section {
-    height: auto;
-    padding: 20px;
-  }
-
-  #home .container-fluid {
-    padding: 0;
-  }
-
-  .carousel-item {
-    transition: transform 2s ease, opacity 0.5s ease-in-out;
-  }
-
-  @media only screen and (max-width: 768px) {
-    .miuky-button {
-      font-size: 16px;
-    }
-
-    #carouselHomeHeader .carousel-item {
-      font-size: calc(0.45em + 1vmin);
-    }
-
-    #home .container-footer h3 {
-      font-size: 15px;
-    }
-
-  }
-</style>
 
 </html>

@@ -1,0 +1,28 @@
+{
+    "version": 3,
+    "sources": [
+        "language.js"
+    ],
+    "names": [
+        "$",
+        "document",
+        "ready",
+        "click",
+        "res",
+        "placeholder",
+        "target",
+        "dataset",
+        "text",
+        "removeClass",
+        "on",
+        "setTimeout",
+        "invalid",
+        "is",
+        "addClass",
+        "submit",
+        "reset",
+        "data"
+    ],
+    "mappings": "AAAAA,EAAEC,UAAUC,MAAM,KACdF,EAAE,2BAA2BG,MAAMC,MAAS,IAAIC,YAAcD,IAAIE,OAAOC,QAAQF,YAAaL,EAAE,gBAAgBQ,KAAK,GAAKH,aAAcL,EAAE,oBAAoBS,YAAY,QAAST,EAAE,kBAAkBS,YAAY,UACnNT,EAAE,cAAcU,GAAG,SAAS,WAAeC,WAAW,KAAQX,EAAE,eAAeS,YAAY,QAASE,WAAW,IAAMX,EAAE,eAAeS,YAAY,UAAW,MAAQ,QACrKT,EAAE,aAAaG,OAAM,WACjB,IAAIS,SAAU,EACd,OADkBZ,EAAE,wCAAwCa,GAAG,YAAcb,EAAE,sCAAsCS,YAAY,sBAAwBG,SAAU,EAAIZ,EAAE,sCAAsCc,SAAS,sBACjNF,SAAWZ,EAAE,aAAa,GAAGe,YAExCf,EAAE,cAAcG,OAAM,WAClBH,EAAE,aAAa,GAAGgB,QAClBhB,EAAE,gBAAgBQ,KAAKR,EAAE,gBAAgBiB,KAAK,gBAC9CjB,EAAE,sBAAsBS,YAAY,qBACpCE,WAAW,KACPX,EAAE,eAAec,SAAS,UAC1BH,WAAW,IACPX,EAAE,eAAec,SAAS,QAAS,MACxC",
+    "file": "language.js"
+}

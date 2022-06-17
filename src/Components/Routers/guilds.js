@@ -23,8 +23,11 @@ module.exports = (express, app, router, axios) => {
     });
 
     router.route('/guilds/:guildId').get(app.checkAuth, app.checkGuild, async (req, res) => {
-        console.log(req.data)
-        return app.template('dashboard/guild', { guild: req.data, pageTitle: req.data.name })(req, res);
+        return app.template('dashboard/guild', {
+            guild: req.data,
+            pageTitle: req.data.name,
+            sidenavNumber: 0
+        })(req, res);
     });
 
     // Guilds: Welcome
@@ -35,8 +38,31 @@ module.exports = (express, app, router, axios) => {
         }).catch(() => { return null });
 
         const database = await app.database.guild.findById(req.data.id);
+        req.data.channels = channels ? channels : req.user.channels;
+        return app.template('dashboard/welcome', {
+            guild: req.data,
+            database,
+            pageTitle: req.data.name,
+            postUrl: 'welcome',
+            sidenavNumber: 1
+        })(req, res);
+    });
 
-        req.data.channels = channels ? channels : req.data.channels;
-        return app.template('dashboard/welcome', { guild: req.data, database, pageTitle: req.data.name, postUrl: 'welcome' })(req, res);
+    // Guilds: Language
+    router.route('/guilds/:guildId/language').get(app.checkAuth, app.checkGuild, async (req, res) => {
+        const database = await app.database.guild.findById(req.data.id);
+
+        const FullLanguages = {
+            'en': "English",
+            "pt-BR": "Português-Brasil"
+        }
+        
+        return app.template('dashboard/language', {
+            guild: req.data,
+            defaultLanguage: { code: database?.language || 'en', language: FullLanguages[database?.language || 'en'] },
+            pageTitle: req.data.name,
+            postUrl: 'language',
+            sidenavNumber: 2
+        })(req, res);
     });
 }

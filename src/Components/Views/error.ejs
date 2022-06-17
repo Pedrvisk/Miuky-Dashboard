@@ -3,6 +3,18 @@
 
 <head>
   <%- include('../Partials/head') %>
+  <style>
+    @media only screen and (max-width: 768px) {
+
+      #error p {
+        font-size: 23px !important;
+      }
+
+      #error .miuky-button {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body style="background: #23272A;">
@@ -33,18 +45,5 @@
     <%- include('../Partials/footer') %>
   </footer>
 </body>
-
-<style>
-  @media only screen and (max-width: 768px) {
-
-    #error p {
-      font-size: 23px !important;
-    }
-
-    #error .miuky-button {
-      font-size: 20px;
-    }
-  }
-</style>
 
 </html>

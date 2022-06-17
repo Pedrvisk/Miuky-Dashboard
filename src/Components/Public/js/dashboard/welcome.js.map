@@ -1,0 +1,37 @@
+{
+    "version": 3,
+    "sources": [
+        "welcome.js"
+    ],
+    "names": [
+        "$",
+        "document",
+        "ready",
+        "click",
+        "res",
+        "placeholder",
+        "target",
+        "dataset",
+        "text",
+        "removeClass",
+        "on",
+        "maxlength",
+        "this",
+        "attr",
+        "currentLength",
+        "val",
+        "length",
+        "setTimeout",
+        "invalid",
+        "is",
+        "addClass",
+        "trim",
+        "replace",
+        "test",
+        "submit",
+        "reset",
+        "data"
+    ],
+    "mappings": "AAAAA,EAAEC,UAAUC,MAAM,KACdF,EAAE,2BAA2BG,MAAMC,MAAS,IAAIC,YAAcD,IAAIE,OAAOC,QAAQF,YAAaL,EAAE,gBAAgBQ,KAAK,GAAKH,aAAcL,EAAE,oBAAoBS,YAAY,QAAST,EAAE,kBAAkBS,YAAY,UAAYT,EAAE,mBAAmBU,GAAG,SAAS,WAAe,IAAIC,UAAYX,EAAEY,MAAMC,KAAK,aAAcC,cAAgBd,EAAEY,MAAMG,MAAMC,OAAQhB,EAAE,2BAA2BQ,KAAK,GAAGM,mBAAmBH,gBAAkBX,EAAE,cAAcU,GAAG,SAAS,WAAeO,WAAW,KAAQjB,EAAE,eAAeS,YAAY,QAASQ,WAAW,IAAMjB,EAAE,eAAeS,YAAY,UAAW,MAAQ,QAC3kBT,EAAE,aAAaG,OAAM,WACjB,IAAIe,SAAU,EACd,OAAIlB,EAAE,uCAAuCmB,GAAG,YAAcnB,EAAE,sCAAsCS,YAAY,sBAAwBS,SAAU,EAAIlB,EAAE,sCAAsCoB,SAAS,sBAAwBpB,EAAE,mBAAmBe,MAAMM,OAAOC,QAAQ,kBAAmB,IAAIN,QAAWhB,EAAE,eAAee,MAAMM,OAAOC,QAAQ,kBAAmB,IAAIN,QAC1WhB,EAAE,eAAeS,YAAY,qBAAsBT,EAAE,mBAAmBS,YAAY,qBAEhFT,EAAE,eAAee,MAAMM,OAAOC,QAAQ,kBAAmB,IAAIN,SACxD,2CAA2CO,KAAKvB,EAAE,eAAee,QAClEG,SAAU,EACHlB,EAAE,eAAeoB,SAAS,sBAIlCF,SAAWlB,EAAE,aAAa,GAAGwB,WAVqVxB,EAAE,eAAeoB,SAAS,qBAAsBpB,EAAE,mBAAmBoB,SAAS,yBAc3cpB,EAAE,cAAcG,OAAM,WAAeH,EAAE,aAAa,GAAGyB,QAASzB,EAAE,gBAAgBQ,KAAKR,EAAE,gBAAgB0B,KAAK,gBAAiB1B,EAAE,2BAA2BQ,KAAK,GAAGR,EAAE,mBAAmBe,MAAMM,OAAOC,QAAQ,kBAAmB,IAAIN,YAAYhB,EAAE,mBAAmBa,KAAK,gBAAiBb,EAAE,sBAAsBS,YAAY,qBAAsBQ,WAAW,KAAQjB,EAAE,eAAeoB,SAAS,UAAWH,WAAW,IAAMjB,EAAE,eAAeoB,SAAS,QAAS,MAAQ",
+    "file": "welcome.js"
+}

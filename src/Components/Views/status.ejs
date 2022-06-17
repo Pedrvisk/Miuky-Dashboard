@@ -3,6 +3,12 @@
 
 <head>
   <%- include('../Partials/head') %>
+
+  <style>
+    #status .container-box {
+      margin: 10px 0;
+    }
+  </style>
 </head>
 
 <body style="background: #23272A;">
@@ -30,11 +36,16 @@
     </div>
     <% for (let cluster of stats.clusters) { %>
     <div class="container-box rounded px-md-4 p-3" style="background: #2C2F33;">
-      <h3 class="miuky-color">
-        <strong>
-          Cluster <%= cluster.id + 1 %>
-        </strong>
-      </h3>
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="miuky-color">
+          <strong>
+            Cluster <%= cluster.id + 1 %>
+          </strong>
+        </h3>
+        <span class="badge rounded m-0 bg-dark" style="font-size: 15px;">
+          <%= cluster.uptime %>
+        </span>
+      </div>
       <% for (let shard of cluster.shards) { %>
       <button type="button" class="btn miuky-button" data-mdb-toggle="tooltip" data-mdb-html="true" title="
         <div class='p-0'>
@@ -62,11 +73,5 @@
   </footer>
   <%- include('../Partials/cookie') %>
 </body>
-
-<style>
-  #status .container-box {
-    margin: 10px 0;
-  }
-</style>
 
 </html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="<%= t('locale') %>">
+
+<head>
+  <%- include('../../Partials/head') %>
+  <style>
+    .collapse-box .nav-link {
+      color: aliceblue;
+      border: none;
+    }
+
+    .collapse-box .nav-link.active {
+      background: rgb(23, 24, 30);
+      box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 4px;
+      border: none;
+      color: aliceblue;
+    }
+
+    .collapse-box .nav-link:hover {
+      background: rgb(23, 24, 30);
+      box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 4px;
+      border: none;
+    }
+
+    .collapse-box {
+      margin: 20px 0;
+      color: aliceblue;
+      border-radius: 5px;
+    }
+
+    .container-box {
+      background: #2C2F33;
+      padding: 30px;
+      margin: 20px 0;
+      color: aliceblue;
+      border-radius: 5px;
+    }
+
+    @media only screen and (max-width: 1200px) {
+      .tab-section {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body class="overflow-hidden" style="background: #23272A;">
+  <%- include('../../Partials/loading') %>
+  <header>
+    <%- include('../../Partials/header') %>
+  </header>
+  <main class="container-fluid pe-0 dashboard-scroll px-lg-2 pb-0 flex-grow-1 d-flex flex-column flex-lg-row overflow-auto">
+    <div class="row flex-grow-lg-1 w-100 flex-grow-0">
+      <aside class="rounded-3 d-none d-lg-flex col-lg-3 flex-grow-lg-1 flex-shrink-1 flex-grow-0 sticky-top pb-1 h-100">
+        <%- include('../../Partials/sidenav') %>
+      </aside>
+      <div class="col overflow-auto h-100 w-100 pe-0 px-lg-3 miuky-color">
+        <div class="container-box">
+          <div class="text-white-50 d-flex align-items-center justify-content-between w-100">
+            <span class="h5 m-0 text-start">
+              <%= t('guilds.language.title') %>
+            </span>
+          </div>
+          <div class="mt-4" style="border-top: 1px solid rgb(35, 39, 42);">
+            <div class="collapse-box">
+              <div class="rounded p-2 p-lg-3 position-relative text-center" style="border: 1px solid #FFA900; background: #2C2F33; color: #FFA900; overflow-wrap: anywhere;">
+                <span class="position-absolute top-0 start-50 start-md-0 translate-middle badge rounded bg-warning p-1 text-dark">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </span>
+                <%= t('guilds.language.alert') %>
+              </div>
+            </div>
+            <div class="collapse-box">
+              <span style="font-size: 16px; line-height: 16px; font-weight: 600; letter-spacing: 0.05em;">
+                <%= t('guilds.language.lang') %>
+              </span>
+              <div class="miuky-select">
+                <button class="miuky-select-button hidden-arrow dropdown-toggle text-muted" role="button" aria-expanded="false" data-mdb-toggle="dropdown" id="dropdownChannel">
+                  <div class="d-flex align-items-center">
+                    <svg width="18px" height="18px" class="me-2" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="48" y1="112" x2="336" y2="112" style="fill:none;stroke:#f0f8ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <line x1="192" y1="64" x2="192" y2="112" style="fill:none;stroke:#f0f8ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <polyline points="272 448 368 224 464 448" style="fill:none;stroke:#f0f8ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <line x1="301.5" y1="384" x2="434.5" y2="384" style="fill:none;stroke:#f0f8ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <path d="M281.3,112S257,206,199,277,80,384,80,384" style="fill:none;stroke:#f0f8ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <path d="M256,336s-35-27-72-75-56-85-56-85" style="fill:none;stroke:#f0f8ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                    </svg>
+                    <span id="placeholder" data-titleSelect="<%= defaultLanguage.language %>"><%= defaultLanguage.language %></span>
+                  </div>
+                  <i class="fas fa-angle-down fa-lg text-muted"></i>
+                </button>
+                <ul class="dropdown-menu w-50" aria-labelledby="dropdownChannel">
+                  <% lang.available.forEach((language) => { %>
+                  <li class="dropdown-item <%= language.code === defaultLanguage.code ? 'checked' : '' %>">
+                    <svg width="20px" height="20px" class="ms-2" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                      <line x1="48" y1="112" x2="336" y2="112" style="fill:none;stroke:<%= language.code === defaultLanguage.code ? '#6597cc' : '#f0f8ff' %>;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <line x1="192" y1="64" x2="192" y2="112" style="fill:none;stroke:<%= language.code === defaultLanguage.code ? '#6597cc' : '#f0f8ff' %>;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <polyline points="272 448 368 224 464 448" style="fill:none;stroke:<%= language.code === defaultLanguage.code ? '#6597cc' : '#f0f8ff' %>;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <line x1="301.5" y1="384" x2="434.5" y2="384" style="fill:none;stroke:<%= language.code === defaultLanguage.code ? '#6597cc' : '#f0f8ff' %>;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <path d="M281.3,112S257,206,199,277,80,384,80,384" style="fill:none;stroke:<%= language.code === defaultLanguage.code ? '#6597cc' : '#f0f8ff' %>;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                      <path d="M256,336s-35-27-72-75-56-85-56-85" style="fill:none;stroke:<%= language.code === defaultLanguage.code ? '#6597cc' : '#f0f8ff' %>;stroke-linecap:round;stroke-linejoin:round;stroke-width:32px" />
+                    </svg>
+                    <input type="radio" value="<%= language.code %>" form="formSave" class="inputForm" name="language" data-placeholder="<%= language.name.full %>" title="<%= language.name.full %>" <%= language.code === defaultLanguage.code ? 'checked' : '' %>>
+                  </li>
+                  <% }) %>
+                </ul>
+              </div>
+            </div>
+            <hr class="rounded-pill" style="background: #23272A; border: 3px solid #23272A; opacity: 100%;">
+            <div class="collapse-box">
+              <div class="discord-message">
+                <div class="discord-author-avatar">
+                  <img loading="lazy" src="/img/miuky.png" alt="Miuky" />
+                </div>
+                <div>
+                  <div class="discord-author-info">
+                    <span class="discord-author-username">Miuky</span>
+                    <span class="badge bg-primary p-1" style="font-size: 0.7em;"><i class="fas fa-check me-1"></i>BOT</span>
+                    <span class="discord-message-timestamp">17/06/2022</span>
+                  </div>
+                  <div class="discord-message-content">
+                    <p class="fw-normal">
+                      <%= t('guilds.language.help.content').split('|')[0] %> <span class="discord-mention">@<%= user.username %></span>, <%= t('guilds.language.help.content').split('|')[1] %>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center">
+                <a class="miuky-button text-decoration-none" href="<%= t('route.support') %>">
+                  <%= t('guilds.language.help.button') %>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <%- include('../../Partials/footer') %>
+  </footer>
+  <%- include('../../Partials/sidenavMobile') %>
+  <%- include('../../Partials/cookie') %>
+  <%- include('../../Partials/save') %>
+</body>
+
+</html>

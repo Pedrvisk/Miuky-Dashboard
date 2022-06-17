@@ -25,6 +25,7 @@
 		"servers": "/guilds",
 		"invite": "/invite",
 		"support": "/support",
+		"api": "/api",
 		"discord": {
 			"login": "/discord/login",
 			"logout": "/discord/logout"
@@ -205,12 +206,14 @@
 				{
 					"title": "Welcome",
 					"emoji": "fas fa-comment-alt",
-					"href": "/welcome"
+					"href": "/welcome",
+					"number": "1"
 				},
 				{
 					"title": "Language",
 					"emoji": "fas fa-globe",
-					"href": "/language"
+					"href": "/language",
+					"number": "2"
 				}
 			]
 		}
@@ -238,6 +241,36 @@
 						"href": "/language"
 					}
 				]
+			}
+		},
+		"welcome": {
+			"title": "Welcome Configuration!",
+			"channel": {
+				"title": "Text Channel for Welcome",
+				"placeholder": "Select a channel..."
+			},
+			"message": {
+				"normal": {
+					"title": "Message",
+					"placeholder": "Write the message...",
+					"image": {
+						"title": "Welcome Image",
+						"placeholder": "Supports (jpg|jpeg|png|webp|gif) files"
+					}
+				},
+				"embed": {
+					"title": "Embed Message"
+				}
+			}
+		},
+		"language": {
+			"alert": "Remember that this option only changes the state of the commands when you use them on the server.",
+			"title": "Language Configuration!",
+			"lang": "Commands Language",
+			"help": {
+				"timestamp": "06/17/2022",
+				"content": "🌟 Hello|I currently only have two languages available, but if you want to help me become more accessible to everyone, join my server to help me get translated!",
+				"button": "Let's go!"
 			}
 		}
 	}

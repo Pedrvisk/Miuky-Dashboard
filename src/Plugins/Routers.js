@@ -11,8 +11,12 @@ module.exports = async (express, app, router, axios) => {
         data.user = req.user;
         data.formatUrl = req._parsedUrl.href;
         if (!data.pageTitle) data.pageTitle = req.t(`head.pages.${file}`);
+
         data.script = null;
         if (existsSync(resolve(`src/Components/Public/js/${file}.js`))) data.script = file;
+
+        data.css = null;
+        if (file.match('dashboard')) data.css = 'dashboard';
 
         return res.render(file, data);
     }

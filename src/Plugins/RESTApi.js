@@ -12,16 +12,16 @@ module.exports = async (express, app, router, axios, cache) => {
     // RESTApi: Net-ipc Server
     const { Client } = require('net-ipc');
     app.client = new Client({
-        host: '150.230.94.154',
-        port: 3000,
+        host: process.env.NETIPC.split(':')[0],
+        port: process.env.NETIPC.split(':')[1],
         tls: true,
         reconnect: true,
         retries: Infinity,
         options: {
             pskCallback: () => {
                 return {
-                    identity: process.env.USER,
-                    psk: Buffer.from(process.env.PASS)
+                    identity: process.env.IDENTITY.split(':')[0],
+                    psk: Buffer.from(process.env.IDENTITY.split(':')[1])
                 }
             },
             ciphers: 'PSK',
@@ -36,7 +36,7 @@ module.exports = async (express, app, router, axios, cache) => {
     router.get('/api', async (req, res) => {
         try {
             return res.json({ statusCode: 200, statusText: 'Miuky API Online!' })
-        } catch (err) {
+        } catch {
             return res.json({ statusCode: 503, statusText: 'Miuky API Offline!' })
         }
     });

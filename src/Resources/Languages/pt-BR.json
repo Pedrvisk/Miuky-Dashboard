@@ -14,9 +14,7 @@
 			"privacy": "Privacidade & Termos",
 			"status": "Status",
 			"error": "Erro",
-			"dashboard/guilds": "Servidores",
-			"dashboard/guild": "head.pages.dashboard/guild",
-			"dashboard/welcome": "head.pages.dashboard/welcome"
+			"dashboard/guilds": "Servidores"
 		}
 	},
 	"route": {
@@ -27,6 +25,7 @@
 		"servers": "/pt-BR/guilds",
 		"invite": "/pt-BR/invite",
 		"support": "/pt-BR/support",
+		"api": "/pt-BR/api",
 		"discord": {
 			"login": "/pt-BR/discord/login",
 			"logout": "/pt-BR/discord/logout"
@@ -208,12 +207,14 @@
 				{
 					"title": "Boas-vindas",
 					"emoji": "fas fa-comment-alt",
-					"href": "/welcome"
+					"href": "/welcome",
+					"number": "1"
 				},
 				{
 					"title": "Linguagem",
 					"emoji": "fas fa-globe",
-					"href": "/language"
+					"href": "/language",
+					"number": "2"
 				}
 			]
 		}
@@ -241,6 +242,36 @@
 						"href": "/language"
 					}
 				]
+			}
+		},
+		"welcome": {
+			"title": "Configuração de Boas-vindas!",
+			"channel": {
+				"title": "Canal de texto para Boas-vindas",
+				"placeholder": "Selecione um canal..."
+			},
+			"message": {
+				"normal": {
+					"title": "Mensagem",
+					"placeholder": "Escreva a mensagem...",
+					"image": {
+						"title": "Imagem de Boas-vindas",
+						"placeholder": "Suporta arquivos (jpg|jpeg|png|webp|gif)"
+					}
+				},
+				"embed": {
+					"title": "Mensagem em emblema"
+				}
+			}
+		},
+		"language": {
+			"alert": "Lembre-se que esta opção só altera o estado dos comandos quando os utiliza no servidor.",
+			"title": "Configuração de Idioma!",
+			"lang": "Idioma dos Comandos",
+			"help": {
+				"timestamp": "17/06/2022",
+				"content": "🌟 Olá|atualmente só tenho dois idiomas disponíveis, mas se quiser ajudar-me a tornar-me mais acessível a todos, junte-se ao meu servidor para me ajudar a ser traduzida!",
+				"button": "Vamos lá!"
 			}
 		}
 	}

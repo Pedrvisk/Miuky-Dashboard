@@ -15,11 +15,12 @@ module.exports = (express, app, router, axios) => {
         if (user) done(null, user);
     });
 
+    let passportAuth = process.env.DISCORDAUTH.split('|');
     // OAuth2: Passport Settings
     const DiscordAuth = new DiscordStrategy({
-        clientID: '692069740989907075',
-        clientSecret: 'xhckxMcOFHzlxFQmr-YQjzqpN1ZYlNKy',
-        callbackURL: 'http://localhost:3000/discord/callback',
+        clientID: passportAuth[0],
+        clientSecret: passportAuth[1],
+        callbackURL: passportAuth[2],
         scope: ['identify', 'guilds']
     }, async function (accessToken, refreshToken, profile, done) {
 
@@ -64,6 +65,9 @@ module.exports = (express, app, router, axios) => {
     // Discord: Session
     app.use(session({
         secret: 'K2W9K923k902K902ksa9213k',
+        cookie: {
+            maxAge: 60000 * 60 * 24 * 7
+        },
         saveUninitialized: false,
         resave: false,
         name: 'MiukyOAuth2',

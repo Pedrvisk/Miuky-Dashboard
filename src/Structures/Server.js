@@ -5,6 +5,6 @@ const Dashboard = require(resolve('Dashboard.js'));
 require('greenlock-express').init({
     packageRoot: __dirname,
     configDir: resolve('greenlock'),
-    maintainerEmail: 'theusvrick@gmail.com',
+    maintainerEmail: 'YOUR_EMAIL',
     cluster: false
 }).serve(Dashboard);

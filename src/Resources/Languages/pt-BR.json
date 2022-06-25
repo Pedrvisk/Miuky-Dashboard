@@ -220,6 +220,11 @@
 		}
 	},
 	"guilds": {
+		"save": {
+			"title": "Mudanças detectadas! Por favor, salve ou cancele.",
+			"reset": "Cancelar",
+			"success": "Salvar"
+		},
 		"select": "Selecione um servidor",
 		"owner": "Dono",
 		"admin": "Administrador",
@@ -256,7 +261,24 @@
 					"placeholder": "Escreva a mensagem...",
 					"image": {
 						"title": "Imagem de Boas-vindas",
-						"placeholder": "Suporta arquivos (jpg|jpeg|png|webp|gif)"
+						"exemple": {
+							"title": "Bem-vindo",
+							"description": "Temos agora 100 membros!"	
+						},
+						"colors": {
+							"title": "Cores",
+							"list": [
+								"Fundo",
+								"Borda do avatar",
+								"Título",
+								"Nome do usuário",
+								"Descrição"
+							]
+						},
+						"description": {
+							"title": "Descrição",
+							"placeholder": "Escreva a mensagem..."
+						}
 					}
 				},
 				"embed": {

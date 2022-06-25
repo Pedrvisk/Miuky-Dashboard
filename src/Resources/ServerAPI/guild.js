@@ -13,19 +13,35 @@ module.exports = (express, app, router, axios) => {
     router.post('/api/guilds/:guildId/:type', app.checkAuth, app.checkGuild, async (req, res, next) => {
         const guild = req.params.guildId;
         const module = req.params.type;
-        if (!guild || !req._body) return;
+        if (!guild || !module || !req._body) return;
 
         let dbguild = await app.database.guild.findById(guild);
         if (!dbguild) dbguild = new app.database.guild({ _id: guild });
+        console.log(req.body)
 
-        if (module === 'welcome') {
-            dbguild.welcome.enabled = req.body.enabled === 'on' ? true : false;
-            dbguild.welcome.channel.id = req.body.channel.split('|')[0];
-            dbguild.welcome.channel.name = req.body.channel.split('|')[1];
-            dbguild.welcome.message.content = req.body.message.replace(/(?:\r\n|\r|\n)/g, '\n');
-            dbguild.welcome.message.attachment = req.body.image;
-        } else if (module === 'language') {
-            dbguild.language = req.body.language;
+        switch (module) {
+            case 'welcome': {
+                dbguild.welcome.enabled = req.body.enabled === 'on' ? true : false;
+
+                if (dbguild.welcome.enabled) {
+                    dbguild.welcome.channel.id = req.body.channel.split('|')[0];
+                    dbguild.welcome.channel.name = req.body.channel.split('|')[1];
+                    dbguild.welcome.message.content = req.body.message.replace(/(?:\r\n|\r|\n)/g, '\n');
+
+                    dbguild.welcome.message.attachment.enabled = req.body.attachment_enabled === 'on' ? true : false;
+                    if (dbguild.welcome.message.attachment.enabled) {
+                        dbguild.welcome.message.attachment.image = req.body.color_background;
+                        dbguild.welcome.message.attachment.colors.avatar = req.body.color_border;
+                        dbguild.welcome.message.attachment.colors.username = req.body.color_username;
+                        dbguild.welcome.message.attachment.colors.title = req.body.color_title;
+                        dbguild.welcome.message.attachment.colors.content = req.body.color_description;
+                        dbguild.welcome.message.attachment.content = req.body.content;
+                    }
+                }
+            }
+            case 'language': {
+                dbguild.language = req.body.language;
+            }
         }
 
         await dbguild.save().catch(() => { });

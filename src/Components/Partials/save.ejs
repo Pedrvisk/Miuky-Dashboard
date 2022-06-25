@@ -1,9 +1,9 @@
-<div id="save-popup" class="hidden none position-fixed bottom-0 end-0 ms-5 ms-lg-0 mb-3 mb-lg-6 me-2 text-wrap miuky-color rounded-3 miuky-shadow w-auto p-lg-3 p-2 d-block d-lg-flex align-items-center justify-content-center text-center" style="background: rgba(0, 0, 0, 0.9); transition: all 1s ease;">
-  <div class="fw-normal me-lg-3">
-    Mudanças detectadas! Por favor, salve ou cancele.
-  </div>
-  <form id="formSave" action="<%= t('route.api') %>/guilds/<%= guild.id %>/<%= postUrl %>" method="POST">
-    <input type="reset" id="resetForm" value="Cancelar" class="btn btn-danger"  />
-    <input type="button" id="saveForm" value="Salvar" class="btn btn-primary ms-1" />
+<div id="save-popup" class="hidden none position-fixed text-wrap bottom-0 end-0 mb-0 mb-lg-3 me-0 me-lg-4 miuky-color rounded-3 miuky-shadow w-auto p-lg-3 p-2 d-flex align-items-center justify-content-center" style="background: rgba(0, 0, 0, 0.9); transition: all 1s ease;">
+  <h6 class="fw-normal mb-0 me-1 me-lg-3 text-start">
+    <%= t('guilds.save.title') %>
+  </h6>
+  <form id="formSave" class="d-flex" action="<%= t('route.api') %>/guilds/<%= guild.id %>/<%= postUrl %>" method="POST">
+    <input type="reset" id="resetForm" value="<%= t('guilds.save.reset') %>" class="btn btn-danger p-2 px-lg-3 py-lg-2" />
+    <input type="button" id="saveForm" value="<%= t('guilds.save.success') %>" class="btn btn-primary ms-1 p-2 px-lg-3 py-lg-2" />
   </form>
 </div>

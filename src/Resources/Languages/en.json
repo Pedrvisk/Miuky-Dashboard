@@ -219,6 +219,11 @@
 		}
 	},
 	"guilds": {
+		"save": {
+			"title": "Changes detected! Please save or cancel.",
+			"reset": "Cancel",
+			"success": "Save"
+		},
 		"select": "Select a guild",
 		"owner": "Owner",
 		"admin": "Administrator",
@@ -255,7 +260,24 @@
 					"placeholder": "Write the message...",
 					"image": {
 						"title": "Welcome Image",
-						"placeholder": "Supports (jpg|jpeg|png|webp|gif) files"
+						"exemple": {
+							"title": "Welcome",
+							"description": "We now have 100 members!"	
+						},
+						"colors": {
+							"title": "Cors",
+							"list": [
+								"Background",
+								"Avatar border",
+								"Title",
+								"Username",
+								"Description"
+							]
+						},
+						"description": {
+							"title": "Description",
+							"placeholder": "Write the message..."
+						}
 					}
 				},
 				"embed": {

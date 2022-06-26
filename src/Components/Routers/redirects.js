@@ -3,11 +3,11 @@
 module.exports = (express, app, router, axios) => {
 
     router.route('/invite').get((req, res) => {
-        return res.redirect(`https://discord.com/api/oauth2/authorize?scope=bot+applications.commands&permissions=1945627743&client_id=692069740989907075${req.user ? '&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fdiscord%2Fcallback' : ''}`);
+        return res.redirect(`https://discord.com/api/oauth2/authorize?scope=bot+applications.commands&permissions=1945627743&client_id=692069740989907075${req.user ? '&response_type=code&redirect_uri=https%3A%2F%2Fmiuky.xyz%2Fdiscord%2Fcallback' : ''}`);
     });
 
     router.route('/invite/:guildId').get(app.checkAuth, (req, res, next) => {
-        return res.redirect(`https://discord.com/api/oauth2/authorize?scope=bot+applications.commands&permissions=1945627743&client_id=692069740989907075&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fdiscord%2Fcallback&guild_id=${req.params.guildId}&disable_guild_select=true`);
+        return res.redirect(`https://discord.com/api/oauth2/authorize?scope=bot+applications.commands&permissions=1945627743&client_id=692069740989907075&response_type=code&redirect_uri=http%3A%2F%2Fmiuky.xyz%2Fdiscord%2Fcallback&guild_id=${req.params.guildId}&disable_guild_select=true`);
     });
 
     router.route('/support').get((req, res) => {

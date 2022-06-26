@@ -135,7 +135,7 @@
               <div class="tab-content" id="messages-tab">
                 <div class="tab-pane fade show active" id="textMessage" role="tabpanel" aria-labelledby="textMessage-tab">
                   <div class="tab-section">
-                    <div class="miuky-areatext w-100">
+                    <div class="miuky-areatext miuky-counter w-100">
                       <div class="shadow-textarea w-100 position-relative">
                         <textarea class="inputForm miuky-textarea text-muted z-depth-1 w-100" form="formSave" name="message" rows="4" spellcheck="false" placeholder="<%= t('guilds.welcome.message.normal.placeholder') %>" maxlength='1500'><%= database?.welcome.message.content ? database.welcome.message.content.length >= 0 ? database.welcome.message.content : '' :  '' %></textarea>
                         <span class="MessageTextareaCounter position-absolute bottom-0 end-0 mb-3 me-1 me-md-3 fw-normal badge" style="color: rgba(240, 248, 255, 0.7); font-size: 15px;">
@@ -222,7 +222,12 @@
                                 <h5 class="text-white-50 m-0">
                                   <%= t('guilds.welcome.message.normal.image.description.title') %>
                                 </h5>
-                                <input class="inputForm miuky-file w-100 text-muted" form="formSave" type="text" name="content" value="<%= database?.welcome.message.attachment?.content ? database.welcome.message.attachment.content : '' %>" placeholder="<%= t('guilds.welcome.message.normal.image.description.title') %>">
+                                <div class="miuky-input-text miuky-counter position-relative">
+                                  <input class="inputForm miuky-text miuky-file w-100 text-muted" maxlength="55" form="formSave" type="text" name="content" value="<%= database?.welcome.message.attachment?.content ? database.welcome.message.attachment.content : '' %>" placeholder="<%= t('guilds.welcome.message.normal.image.description.placeholder') %>">
+                                  <span class="MessageTextareaCounter position-absolute bottom-0 end-0 mb-5 fw-normal badge" style="color: rgba(240, 248, 255, 0.7); font-size: 15px;">
+                                    <%= database?.welcome.message.attachment.content ? database.welcome.message.attachment.content.length >= 0 ? database.welcome.message.attachment.content.length : '0' : '0' %> / 55
+                                  </span>
+                                </div>
                               </div>
                             </div>
                           </div>

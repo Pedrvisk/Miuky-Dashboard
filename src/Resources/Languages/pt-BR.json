@@ -111,8 +111,7 @@
 	"commands": {
 		"categories": {
 			"utils": "Utilidades",
-			"fun": "Entretenimento",
-			"status": "commands.categories.status"
+			"fun": "Entretenimento"
 		},
 		"cooldown": "Tempo de espera",
 		"seconds": "segundos",

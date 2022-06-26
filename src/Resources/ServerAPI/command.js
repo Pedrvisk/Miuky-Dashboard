@@ -7,13 +7,14 @@ module.exports = (express, app, router, axios, cache) => {
 
         try {
             await app.client.request({
-                type: 'commands',
+                type: 'command',
                 data: { lang: req.lang.code || 'en' }
-            }).then((data) => cache.set(`${req.lang.code}_commands`, data, 300));
+            }).then((res) => cache.set(`${req.lang.code}_commands`, res, 300));
 
             return res.json(cache.get(`${req.lang.code}_commands`));
         } catch {
             return res.json(cache.get(`${req.lang.code}_commands`));
         }
     });
+    
 }

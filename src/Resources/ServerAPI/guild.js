@@ -10,6 +10,11 @@ module.exports = (express, app, router, axios) => {
         res.json(req.user.guilds);
     });
 
+    router.get('/api/guilds/:guildId', async (req, res) => {
+        if (req.user?.id !== process.env.DEVELOPER) return;
+        res.json(req.data);
+    });
+
     router.post('/api/guilds/:guildId/:type', app.checkAuth, app.checkGuild, async (req, res, next) => {
         const guild = req.params.guildId;
         const module = req.params.type;

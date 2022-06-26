@@ -24,14 +24,14 @@
   </header>
   <main class="d-flex justify-content-center align-items-start p-lg-5 p-2">
     <div>
-      <% for (let category in commands) { %>
+      <% for (let category in data.commands) { %>
       <div class="container-fluid my-5">
         <h3 class="miuky-color">
           <strong>
-            <%= t('commands.categories.' + category) %> - <%= commands[category].size %>
+            <%= t('commands.categories.' + category.toLowerCase()) %> - <%= data.commands[category].length %>
           </strong>
         </h3>
-        <% for (let command of commands[category].commands) { %>
+        <% for (let command of data.commands[category]) { %>
         <button type="button" class="miuky-button command-button" data-mdb-toggle="modal" data-mdb-target="#modal-<%= command.name %>">
           <%= command.name.toUpperCase() %><i class="fas fa-caret-down ms-1"></i>
         </button>

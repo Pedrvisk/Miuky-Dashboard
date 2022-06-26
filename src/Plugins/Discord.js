@@ -96,14 +96,14 @@ module.exports = (express, app, router, axios) => {
         const dbguild = global.functions.checkGuildDB(guild, user.guilds);
         if (!dbguild) return res.redirect(req.lang.routeTo('/guilds'));
 
-        const data = await app.client.request({
+        const guildAPI = await app.client.request({
             type: 'guild',
             method: 'GET',
             data: { id: dbguild.id }
         }).catch(() => { return null });
 
-        if (!data || data.statusCode) return res.redirect(req.lang.routeTo(`/invite/${guild}`));
-        req.data = data;
+        if (!guildAPI || guildAPI.statusCode === 404) return res.redirect(req.lang.routeTo(`/invite/${guild}`));
+        req.data = guildAPI.data;
         next();
     }
 

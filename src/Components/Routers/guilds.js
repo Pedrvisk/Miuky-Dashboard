@@ -34,11 +34,12 @@ module.exports = (express, app, router, axios) => {
     router.route('/guilds/:guildId/welcome').get(app.checkAuth, app.checkGuild, async (req, res) => {
         const channels = await app.client.request({
             type: 'channel',
-            data: { guildId: req.data.id }
+            method: 'GUILD_ALL',
+            data: { guildId: req.data.id, type: 'GUILD_TEXT' }
         }).catch(() => { return null });
 
         const database = await app.database.guild.findById(req.data.id);
-        req.data.channels = channels ? channels : req.user.channels;
+        req.data.channels = channels.data ? channels.data : req.user.channels;
         return app.template('dashboard/welcome', {
             guild: req.data,
             database,

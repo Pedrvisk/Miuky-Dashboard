@@ -64,13 +64,13 @@ module.exports = (express, app, router, axios) => {
 
     // Discord: Session
     app.use(session({
-        secret: 'K2W9K923k902K902ksa9213k',
+        secret: 'SECRET_SHHHH',
         cookie: {
             maxAge: 60000 * 60 * 24 * 7
         },
         saveUninitialized: false,
         resave: false,
-        name: 'MiukyOAuth2',
+        name: 'cookie3',
         store: MongoDB.create({
             mongoUrl: process.env.MONGO_URL
         })

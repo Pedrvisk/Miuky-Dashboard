@@ -18,4 +18,4 @@ A few more:  <strong>[axios](https://www.npmjs.com/package/axios), [cors](https:
  
 ## LICENSE
 
-This project is licensed under MIT, which basically means you can do anything you want with it, i only ask that you include a small copyright notice and a link to this repo in a comment in your source code.
+This project is licensed under <strong>MIT</strong>, which basically means you can do anything you want with it, i only ask that you include a small copyright notice and a link to this repo in a comment in your source code.

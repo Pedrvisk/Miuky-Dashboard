@@ -1,4 +1,4 @@
-# [Miuky](https://discord.com/oauth2/authorize?scope=bot+applications.commands&permissions=1945627743&client_id=692069740989907075) - Dashboard
+# [Miuky](https://discord.com/oauth2/authorize?scope=bot+applications.commands&permissions=1945627743&client_id=692069740989907075) - Dashboard ![](https://img.shields.io/badge/✖️_DISCONTINUED-red?style=flat-square&logoColor=black')
 
 💻 A control panel developed for my other project, a <strong>[Discord Bot](https://discord.com/oauth2/authorize?scope=bot+applications.commands&permissions=1945627743&client_id=692069740989907075)</strong>.
 ```js
